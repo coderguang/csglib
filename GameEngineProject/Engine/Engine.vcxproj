@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{49834E16-751C-45D9-AB05-ECDBB7E9DA2A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\lib</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;WIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Engine\engine\allocator\allocator.cpp" />
+    <ClCompile Include="..\..\Engine\engine\baseServer\loggerWritter.cpp" />
+    <ClCompile Include="..\..\Engine\engine\baseServer\mainLogicTask.cpp" />
+    <ClCompile Include="..\..\Engine\engine\baseServer\SocketRecvTask.cpp" />
+    <ClCompile Include="..\..\Engine\engine\baseServer\SocketSendTask.cpp" />
+    <ClCompile Include="..\..\Engine\engine\baseServer\updateDtTask.cpp" />
+    <ClCompile Include="..\..\Engine\engine\lock\lock.cpp" />
+    <ClCompile Include="..\..\Engine\engine\lock\lockObjectManager.cpp" />
+    <ClCompile Include="..\..\Engine\engine\mq\msgBlock.cpp" />
+    <ClCompile Include="..\..\Engine\engine\mq\msgManager.cpp" />
+    <ClCompile Include="..\..\Engine\engine\mq\msgQueue.cpp" />
+    <ClCompile Include="..\..\Engine\engine\net\protocol\protocol.cpp" />
+    <ClCompile Include="..\..\Engine\engine\net\session\session.cpp" />
+    <ClCompile Include="..\..\Engine\engine\net\session\sessionManager.cpp" />
+    <ClCompile Include="..\..\Engine\engine\net\socket\LinuxSocket.cpp" />
+    <ClCompile Include="..\..\Engine\engine\net\socket\socket.cpp" />
+    <ClCompile Include="..\..\Engine\engine\net\socket\socketManager.cpp" />
+    <ClCompile Include="..\..\Engine\engine\net\socket\WinSocket.cpp" />
+    <ClCompile Include="..\..\Engine\engine\rpc\rmidef.cpp" />
+    <ClCompile Include="..\..\Engine\engine\rpc\rmiObject.cpp" />
+    <ClCompile Include="..\..\Engine\engine\serialize\bytesbuffer.cpp" />
+    <ClCompile Include="..\..\Engine\engine\serialize\serializestream.cpp" />
+    <ClCompile Include="..\..\Engine\engine\thread\task.cpp" />
+    <ClCompile Include="..\..\Engine\engine\thread\thread.cpp" />
+    <ClCompile Include="..\..\Engine\engine\thread\threadManager.cpp" />
+    <ClCompile Include="..\..\Engine\framework\counter\counterHandler.cpp" />
+    <ClCompile Include="..\..\Engine\framework\counter\counterHandlerManager.cpp" />
+    <ClCompile Include="..\..\Engine\framework\datetime\datetime.cpp" />
+    <ClCompile Include="..\..\Engine\framework\datetime\datetimeHelper.cpp" />
+    <ClCompile Include="..\..\Engine\framework\exception\exception.cpp" />
+    <ClCompile Include="..\..\Engine\framework\log\Log.cpp" />
+    <ClCompile Include="..\..\Engine\framework\SmartPoint\refObject.cpp" />
+    <ClCompile Include="..\..\Engine\framework\SmartPoint\smartPoint.cpp" />
+    <ClCompile Include="..\..\Engine\framework\util\sysUtil.cpp" />
+    <ClCompile Include="..\..\Engine\framework\util\typetransform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Engine\engine\allocator\allocator.h" />
+    <ClInclude Include="..\..\Engine\engine\baseServer\baseServerDef.h" />
+    <ClInclude Include="..\..\Engine\engine\baseServer\loggerWritter.h" />
+    <ClInclude Include="..\..\Engine\engine\baseServer\mainLogicTask.h" />
+    <ClInclude Include="..\..\Engine\engine\baseServer\SocketRecvTask.h" />
+    <ClInclude Include="..\..\Engine\engine\baseServer\SocketSendTask.h" />
+    <ClInclude Include="..\..\Engine\engine\baseServer\updateDtTask.h" />
+    <ClInclude Include="..\..\Engine\engine\def\csg_def.h" />
+    <ClInclude Include="..\..\Engine\engine\def\environment_def.h" />
+    <ClInclude Include="..\..\Engine\engine\lock\lock.h" />
+    <ClInclude Include="..\..\Engine\engine\lock\lockObjectManager.h" />
+    <ClInclude Include="..\..\Engine\engine\mq\msgBlock.h" />
+    <ClInclude Include="..\..\Engine\engine\mq\msgManager.h" />
+    <ClInclude Include="..\..\Engine\engine\mq\msgQueue.h" />
+    <ClInclude Include="..\..\Engine\engine\net\protocol\protocol.h" />
+    <ClInclude Include="..\..\Engine\engine\net\protocol\protocoldef.h" />
+    <ClInclude Include="..\..\Engine\engine\net\session\session.h" />
+    <ClInclude Include="..\..\Engine\engine\net\session\sessionManager.h" />
+    <ClInclude Include="..\..\Engine\engine\net\socket\LinuxSocket.h" />
+    <ClInclude Include="..\..\Engine\engine\net\socket\socket.h" />
+    <ClInclude Include="..\..\Engine\engine\net\socket\socketManager.h" />
+    <ClInclude Include="..\..\Engine\engine\net\socket\WinSocket.h" />
+    <ClInclude Include="..\..\Engine\engine\rpc\rmidef.h" />
+    <ClInclude Include="..\..\Engine\engine\rpc\rmiObject.h" />
+    <ClInclude Include="..\..\Engine\engine\serialize\bytesbuffer.h" />
+    <ClInclude Include="..\..\Engine\engine\serialize\serializestream.h" />
+    <ClInclude Include="..\..\Engine\engine\thread\task.h" />
+    <ClInclude Include="..\..\Engine\engine\thread\thread.h" />
+    <ClInclude Include="..\..\Engine\engine\thread\threadManager.h" />
+    <ClInclude Include="..\..\Engine\framework\counter\counterHandler.h" />
+    <ClInclude Include="..\..\Engine\framework\counter\counterHandlerManager.h" />
+    <ClInclude Include="..\..\Engine\framework\datetime\datetime.h" />
+    <ClInclude Include="..\..\Engine\framework\datetime\datetimeHelper.h" />
+    <ClInclude Include="..\..\Engine\framework\DesignPattern\objectPool.h" />
+    <ClInclude Include="..\..\Engine\framework\DesignPattern\Singleton.h" />
+    <ClInclude Include="..\..\Engine\framework\exception\exception.h" />
+    <ClInclude Include="..\..\Engine\framework\io\IOHandler.h" />
+    <ClInclude Include="..\..\Engine\framework\io\PrintIOHandler.h" />
+    <ClInclude Include="..\..\Engine\framework\log\Log.h" />
+    <ClInclude Include="..\..\Engine\framework\SmartPoint\refObject.h" />
+    <ClInclude Include="..\..\Engine\framework\SmartPoint\smartPoint.h" />
+    <ClInclude Include="..\..\Engine\framework\util\endian.h" />
+    <ClInclude Include="..\..\Engine\framework\util\sysUtil.h" />
+    <ClInclude Include="..\..\Engine\framework\util\typetransform.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
