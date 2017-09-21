@@ -104,8 +104,8 @@ struct CSGType{
 	}
 };
 
-static std::string includeCsgFile=""
-"#include \"engine/serialize/serializestream\.h\"\n"
+static std::string includeCsgFile="\
+#include \"engine/serialize/serializestream\.h\"\n\
 #include \"engine/def/csg_def\.h\"\n\
 #include \"engine/mq/msgBlock\.h\"\n\
 #include \"engine/mq/msgManager\.h\"\n\
