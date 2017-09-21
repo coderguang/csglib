@@ -1,0 +1,112 @@
+[21422][21422] 2017-09-21 13:37:01.341: LogDebug : Program run in below environment !!!
+[21422][21422] 2017-09-21 13:37:01.341: LogDebug : _DEBUG set
+[21422][21422] 2017-09-21 13:37:01.341: LogDebug : CSG_LINUX set
+[21422][21422] 2017-09-21 13:37:01.341: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[21422][21422] 2017-09-21 13:37:01.341: LogDebug : enter s fro server,c fro client,other for nothing
+[21422][21425] 2017-09-21 13:37:01.341: LogSys : CMainLogicTask::run start
+[21422][21426] 2017-09-21 13:37:01.341: LogSys : CSocketSendTask::start 
+[21422][21423] 2017-09-21 13:37:01.341: LogSys : CUpdateDtTask::run start
+[21422][21424] 2017-09-21 13:37:01.341: LogSys : CLoggerWritterTask::run start
+[21422][21422] 2017-09-21 13:37:03.016: LogDebug : start server
+[21422][21422] 2017-09-21 13:37:03.016: LogDebug : listen start
+[21422][21437] 2017-09-21 13:37:03.017: LogSys : CSocketRecvTask::run listen start,port=9001
+[21422][21437] 2017-09-21 13:37:10.408: LogDebug : CSocketBase::add new sockfd socketfd=6
+[21422][21437] 2017-09-21 13:37:10.408: LogDebug : CCSession::print:onConnected,remoteaddr=14.23.41.90,port=11897
+[21422][21425] 2017-09-21 13:37:12.153: LogInfo : t2_async be call,param=2222,str=helooog
+[21422][21425] 2017-09-21 13:37:12.153: LogDebug : CRpcHelper::prepareToReturn,size=6
+[21422][21425] 2017-09-21 13:37:12.153: LogDebug : CRpcHelper::toReturn,size=11
+[21422][21425] 2017-09-21 13:37:12.153: LogDebug : CRpcHelper::toReturn,sendSize=11
+[21422][21425] 2017-09-21 13:37:21.165: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21422][21425] 2017-09-21 13:37:21.165: LogDebug : CRpcHelper::prepareToReturn,size=6
+[21422][21425] 2017-09-21 13:37:21.165: LogDebug : CRpcHelper::toReturn,size=19
+[21422][21425] 2017-09-21 13:37:21.165: LogDebug : CRpcHelper::toReturn,sendSize=19
+[21422][21425] 2017-09-21 13:37:22.468: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21422][21425] 2017-09-21 13:37:22.468: LogDebug : CRpcHelper::prepareToReturn,size=6
+[21422][21425] 2017-09-21 13:37:22.468: LogDebug : CRpcHelper::toReturn,size=19
+[21422][21425] 2017-09-21 13:37:22.468: LogDebug : CRpcHelper::toReturn,sendSize=19
+[21422][21425] 2017-09-21 13:37:23.569: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21422][21425] 2017-09-21 13:37:23.569: LogDebug : CRpcHelper::prepareToReturn,size=6
+[21422][21425] 2017-09-21 13:37:23.569: LogDebug : CRpcHelper::toReturn,size=19
+[21422][21425] 2017-09-21 13:37:23.569: LogDebug : CRpcHelper::toReturn,sendSize=19
+[21422][21425] 2017-09-21 13:37:24.870: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21422][21425] 2017-09-21 13:37:24.870: LogDebug : CRpcHelper::prepareToReturn,size=6
+[21422][21425] 2017-09-21 13:37:24.870: LogDebug : CRpcHelper::toReturn,size=19
+[21422][21425] 2017-09-21 13:37:24.870: LogDebug : CRpcHelper::toReturn,sendSize=19
+[21422][21437] 2017-09-21 13:37:28.050: LogDebug : CSocketBase::the socket=6 disconneted....
+[21422][21437] 2017-09-21 13:37:28.050: LogDebug : CCSession::print:onDisconnected,remoteaddr=14.23.41.90,port=11897
+[21572][21572] 2017-09-21 13:39:34.287: LogDebug : Program run in below environment !!!
+[21572][21572] 2017-09-21 13:39:34.287: LogDebug : _DEBUG set
+[21572][21572] 2017-09-21 13:39:34.287: LogDebug : CSG_LINUX set
+[21572][21572] 2017-09-21 13:39:34.287: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[21572][21572] 2017-09-21 13:39:34.287: LogDebug : enter s fro server,c fro client,other for nothing
+[21572][21574] 2017-09-21 13:39:34.287: LogSys : CLoggerWritterTask::run start
+[21572][21575] 2017-09-21 13:39:34.287: LogSys : CMainLogicTask::run start
+[21572][21576] 2017-09-21 13:39:34.287: LogSys : CSocketSendTask::start 
+[21572][21573] 2017-09-21 13:39:34.287: LogSys : CUpdateDtTask::run start
+[21572][21572] 2017-09-21 13:39:35.937: LogDebug : start server
+[21572][21572] 2017-09-21 13:39:35.937: LogDebug : listen start
+[21572][21578] 2017-09-21 13:39:35.937: LogSys : CSocketRecvTask::run listen start,port=9001
+[21572][21578] 2017-09-21 13:39:57.717: LogDebug : CSocketBase::add new sockfd socketfd=6
+[21572][21578] 2017-09-21 13:39:57.717: LogDebug : CCSession::print:onConnected,remoteaddr=14.23.41.90,port=11961
+[21572][21575] 2017-09-21 13:40:01.814: LogInfo : t2_async be call,param=2222,str=helooog
+[21572][21575] 2017-09-21 13:40:08.433: LogInfo : t2_async be call,param=2222,str=helooog
+[21572][21575] 2017-09-21 13:40:11.837: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21572][21575] 2017-09-21 13:40:13.838: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21572][21575] 2017-09-21 13:40:15.140: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21572][21578] 2017-09-21 13:40:31.193: LogDebug : CSocketBase::the socket=6 disconneted....
+[21572][21578] 2017-09-21 13:40:31.193: LogDebug : CCSession::print:onDisconnected,remoteaddr=14.23.41.90,port=11961
+[21620][21620] 2017-09-21 13:40:37.405: LogDebug : Program run in below environment !!!
+[21620][21620] 2017-09-21 13:40:37.405: LogDebug : _DEBUG set
+[21620][21620] 2017-09-21 13:40:37.405: LogDebug : CSG_LINUX set
+[21620][21620] 2017-09-21 13:40:37.405: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[21620][21620] 2017-09-21 13:40:37.405: LogDebug : enter s fro server,c fro client,other for nothing
+[21620][21623] 2017-09-21 13:40:37.405: LogSys : CMainLogicTask::run start
+[21620][21624] 2017-09-21 13:40:37.405: LogSys : CSocketSendTask::start 
+[21620][21621] 2017-09-21 13:40:37.405: LogSys : CUpdateDtTask::run start
+[21620][21622] 2017-09-21 13:40:37.405: LogSys : CLoggerWritterTask::run start
+[21650][21650] 2017-09-21 13:40:55.749: LogDebug : Program run in below environment !!!
+[21650][21650] 2017-09-21 13:40:55.749: LogDebug : _DEBUG set
+[21650][21650] 2017-09-21 13:40:55.749: LogDebug : CSG_LINUX set
+[21650][21650] 2017-09-21 13:40:55.749: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[21650][21650] 2017-09-21 13:40:55.749: LogDebug : enter s fro server,c fro client,other for nothing
+[21650][21652] 2017-09-21 13:40:55.749: LogSys : CLoggerWritterTask::run start
+[21650][21653] 2017-09-21 13:40:55.749: LogSys : CMainLogicTask::run start
+[21650][21654] 2017-09-21 13:40:55.749: LogSys : CSocketSendTask::start 
+[21650][21651] 2017-09-21 13:40:55.749: LogSys : CUpdateDtTask::run start
+[21650][21650] 2017-09-21 13:40:57.115: LogDebug : start client
+[21650][21650] 2017-09-21 13:40:57.115: LogDebug : enter 1 for local host,2 for remote 
+[21620][21620] 2017-09-21 13:41:11.291: LogDebug : start server
+[21620][21620] 2017-09-21 13:41:11.291: LogDebug : listen start
+[21620][21683] 2017-09-21 13:41:11.291: LogSys : CSocketRecvTask::run listen start,port=9001
+[21684][21684] 2017-09-21 13:41:13.916: LogDebug : Program run in below environment !!!
+[21684][21684] 2017-09-21 13:41:13.916: LogDebug : _DEBUG set
+[21684][21684] 2017-09-21 13:41:13.916: LogDebug : CSG_LINUX set
+[21684][21684] 2017-09-21 13:41:13.916: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[21684][21684] 2017-09-21 13:41:13.916: LogDebug : enter s fro server,c fro client,other for nothing
+[21684][21685] 2017-09-21 13:41:13.916: LogSys : CUpdateDtTask::run start
+[21684][21686] 2017-09-21 13:41:13.916: LogSys : CLoggerWritterTask::run start
+[21684][21687] 2017-09-21 13:41:13.916: LogSys : CMainLogicTask::run start
+[21684][21688] 2017-09-21 13:41:13.916: LogSys : CSocketSendTask::start 
+[21684][21684] 2017-09-21 13:41:14.650: LogDebug : start client
+[21684][21684] 2017-09-21 13:41:14.650: LogDebug : enter 1 for local host,2 for remote 
+[21620][21683] 2017-09-21 13:41:15.634: LogDebug : CSocketBase::add new sockfd socketfd=6
+[21620][21683] 2017-09-21 13:41:15.634: LogDebug : CCSession::print:onConnected,remoteaddr=127.0.0.1,port=35214
+[21684][21684] 2017-09-21 13:41:15.634: LogDebug : your select is 127.0.0.1
+[21684][21689] 2017-09-21 13:41:15.634: LogSys : CSocketRecvTask::doRecvLoop,ip=127.0.0.1,port=9001
+[21620][21623] 2017-09-21 13:41:19.072: LogInfo : t2_async be call,param=2222,str=helooog
+[21684][21684] 2017-09-21 13:41:19.065: LogDebug : enter c fro send,b for break,other for nothing
+[21684][21687] 2017-09-21 13:41:19.123: LogInfo : CProtocol::handlePacket,messageId=0
+[21684][21684] 2017-09-21 13:41:26.400: LogDebug : enter c fro send,b for break,other for nothing
+[21620][21623] 2017-09-21 13:41:26.481: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21684][21687] 2017-09-21 13:41:26.531: LogInfo : CProtocol::handlePacket,messageId=1
+[21684][21687] 2017-09-21 13:41:26.531: LogInfo : CSrv_ITest_t3_CallBack,b=1,str=hi geo
+[21620][21683] 2017-09-21 13:41:46.453: LogDebug : CSocketBase::add new sockfd socketfd=7
+[21620][21683] 2017-09-21 13:41:46.453: LogDebug : CCSession::print:onConnected,remoteaddr=14.23.41.90,port=11991
+[21620][21623] 2017-09-21 13:41:54.315: LogInfo : t2_async be call,param=2222,str=helooog
+[21620][21623] 2017-09-21 13:41:57.420: LogInfo : t2_async be call,param=2222,str=helooog
+[21620][21623] 2017-09-21 13:42:01.024: LogInfo : t2_async be call,param=2222,str=helooog
+[21620][21623] 2017-09-21 13:42:12.738: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21620][21623] 2017-09-21 13:42:17.543: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21620][21623] 2017-09-21 13:42:20.946: LogInfo : t3_async be call,param=2523,str=oojigwoeg
+[21620][21683] 2017-09-21 13:42:27.319: LogDebug : CSocketBase::the socket=7 disconneted....
+[21620][21683] 2017-09-21 13:42:27.319: LogDebug : CCSession::print:onDisconnected,remoteaddr=14.23.41.90,port=11991
