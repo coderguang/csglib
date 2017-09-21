@@ -1,0 +1,400 @@
+Terminals unused in grammar
+
+   TOKEN_STRUCT_END
+   TOKEN_INTERFACE_END
+   TOKEN_INTERFACE_ID_START
+   TOKEN_INTERFACE_ID_NUM
+   TOKEN_INTERFACE_ID_END
+   TOKEN_INTERFACE_FUNCTION_NAME
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: program statement
+    2        | statement
+
+    3 statement: define_line
+    4          | comment
+    5          | include
+    6          | enum
+    7          | struct
+    8          | interface
+
+    9 interface: TOKEN_INTERFACE_NAME TOKEN_INTERFACE_CONTENT
+
+   10 define_line: TOKEN_IFNDEF TOKEN_IFNDEF_FILE TOKEN_IFNDEF_END
+   11            | TOKEN_IFDEF TOKEN_IFDEF_FILE TOKEN_IFDEF_END
+   12            | TOKEN_ENDIF
+
+   13 comment: TOKEN_COMMENT_START TOKEN_COMMENT_FILE TOKEN_COMMENT_END
+   14        | TOKEN_COMMENT_EX_START TOKEN_COMMENT_EX_FILE TOKEN_COMMENT_EX_END
+
+   15 include: TOKEN_INCLUDE_START TOKEN_INCLUDE_SIGN TOKEN_INCLUDE_FILE TOKEN_INCLUDE_END
+
+   16 enum: TOKEN_ENUM_START TOKEN_ENUM_CONTENT
+
+   17 struct: TOKEN_ID_START TOKEN_ID_NUM TOKEN_ID_END TOKEN_STRUCT_START TOKEN_STRUCT_NAME TOKEN_STRUCT_CONTENT
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+TOKEN_IFNDEF (258) 10
+TOKEN_IFNDEF_END (259) 10
+TOKEN_IFDEF (260) 11
+TOKEN_IFDEF_END (261) 11
+TOKEN_IFNDEF_FILE (262) 10
+TOKEN_IFDEF_FILE (263) 11
+TOKEN_ENDIF (264) 12
+TOKEN_COMMENT_START (265) 13
+TOKEN_COMMENT_END (266) 13
+TOKEN_COMMENT_EX_START (267) 14
+TOKEN_COMMENT_EX_END (268) 14
+TOKEN_COMMENT_FILE (269) 13
+TOKEN_COMMENT_EX_FILE (270) 14
+TOKEN_INCLUDE_START (271) 15
+TOKEN_INCLUDE_END (272) 15
+TOKEN_INCLUDE_SIGN (273) 15
+TOKEN_INCLUDE_FILE (274) 15
+TOKEN_ENUM_START (275) 16
+TOKEN_ENUM_CONTENT (276) 16
+TOKEN_STRUCT_START (277) 17
+TOKEN_STRUCT_END (278)
+TOKEN_STRUCT_NAME (279) 17
+TOKEN_STRUCT_CONTENT (280) 17
+TOKEN_ID_START (281) 17
+TOKEN_ID_END (282) 17
+TOKEN_ID_NUM (283) 17
+TOKEN_INTERFACE_END (284)
+TOKEN_INTERFACE_ID_START (285)
+TOKEN_INTERFACE_ID_NUM (286)
+TOKEN_INTERFACE_ID_END (287)
+TOKEN_INTERFACE_NAME (288) 9
+TOKEN_INTERFACE_CONTENT (289) 9
+TOKEN_INTERFACE_FUNCTION_NAME (290)
+
+
+Nonterminals, with rules where they appear
+
+$accept (36)
+    on left: 0
+program (37)
+    on left: 1 2, on right: 0 1
+statement (38)
+    on left: 3 4 5 6 7 8, on right: 1 2
+interface (39)
+    on left: 9, on right: 8
+define_line (40)
+    on left: 10 11 12, on right: 3
+comment (41)
+    on left: 13 14, on right: 4
+include (42)
+    on left: 15, on right: 5
+enum (43)
+    on left: 16, on right: 6
+struct (44)
+    on left: 17, on right: 7
+
+
+State 0
+
+    0 $accept: . program $end
+
+    TOKEN_IFNDEF            shift, and go to state 1
+    TOKEN_IFDEF             shift, and go to state 2
+    TOKEN_ENDIF             shift, and go to state 3
+    TOKEN_COMMENT_START     shift, and go to state 4
+    TOKEN_COMMENT_EX_START  shift, and go to state 5
+    TOKEN_INCLUDE_START     shift, and go to state 6
+    TOKEN_ENUM_START        shift, and go to state 7
+    TOKEN_ID_START          shift, and go to state 8
+    TOKEN_INTERFACE_NAME    shift, and go to state 9
+
+    program      go to state 10
+    statement    go to state 11
+    interface    go to state 12
+    define_line  go to state 13
+    comment      go to state 14
+    include      go to state 15
+    enum         go to state 16
+    struct       go to state 17
+
+
+State 1
+
+   10 define_line: TOKEN_IFNDEF . TOKEN_IFNDEF_FILE TOKEN_IFNDEF_END
+
+    TOKEN_IFNDEF_FILE  shift, and go to state 18
+
+
+State 2
+
+   11 define_line: TOKEN_IFDEF . TOKEN_IFDEF_FILE TOKEN_IFDEF_END
+
+    TOKEN_IFDEF_FILE  shift, and go to state 19
+
+
+State 3
+
+   12 define_line: TOKEN_ENDIF .
+
+    $default  reduce using rule 12 (define_line)
+
+
+State 4
+
+   13 comment: TOKEN_COMMENT_START . TOKEN_COMMENT_FILE TOKEN_COMMENT_END
+
+    TOKEN_COMMENT_FILE  shift, and go to state 20
+
+
+State 5
+
+   14 comment: TOKEN_COMMENT_EX_START . TOKEN_COMMENT_EX_FILE TOKEN_COMMENT_EX_END
+
+    TOKEN_COMMENT_EX_FILE  shift, and go to state 21
+
+
+State 6
+
+   15 include: TOKEN_INCLUDE_START . TOKEN_INCLUDE_SIGN TOKEN_INCLUDE_FILE TOKEN_INCLUDE_END
+
+    TOKEN_INCLUDE_SIGN  shift, and go to state 22
+
+
+State 7
+
+   16 enum: TOKEN_ENUM_START . TOKEN_ENUM_CONTENT
+
+    TOKEN_ENUM_CONTENT  shift, and go to state 23
+
+
+State 8
+
+   17 struct: TOKEN_ID_START . TOKEN_ID_NUM TOKEN_ID_END TOKEN_STRUCT_START TOKEN_STRUCT_NAME TOKEN_STRUCT_CONTENT
+
+    TOKEN_ID_NUM  shift, and go to state 24
+
+
+State 9
+
+    9 interface: TOKEN_INTERFACE_NAME . TOKEN_INTERFACE_CONTENT
+
+    TOKEN_INTERFACE_CONTENT  shift, and go to state 25
+
+
+State 10
+
+    0 $accept: program . $end
+    1 program: program . statement
+
+    $end                    shift, and go to state 26
+    TOKEN_IFNDEF            shift, and go to state 1
+    TOKEN_IFDEF             shift, and go to state 2
+    TOKEN_ENDIF             shift, and go to state 3
+    TOKEN_COMMENT_START     shift, and go to state 4
+    TOKEN_COMMENT_EX_START  shift, and go to state 5
+    TOKEN_INCLUDE_START     shift, and go to state 6
+    TOKEN_ENUM_START        shift, and go to state 7
+    TOKEN_ID_START          shift, and go to state 8
+    TOKEN_INTERFACE_NAME    shift, and go to state 9
+
+    statement    go to state 27
+    interface    go to state 12
+    define_line  go to state 13
+    comment      go to state 14
+    include      go to state 15
+    enum         go to state 16
+    struct       go to state 17
+
+
+State 11
+
+    2 program: statement .
+
+    $default  reduce using rule 2 (program)
+
+
+State 12
+
+    8 statement: interface .
+
+    $default  reduce using rule 8 (statement)
+
+
+State 13
+
+    3 statement: define_line .
+
+    $default  reduce using rule 3 (statement)
+
+
+State 14
+
+    4 statement: comment .
+
+    $default  reduce using rule 4 (statement)
+
+
+State 15
+
+    5 statement: include .
+
+    $default  reduce using rule 5 (statement)
+
+
+State 16
+
+    6 statement: enum .
+
+    $default  reduce using rule 6 (statement)
+
+
+State 17
+
+    7 statement: struct .
+
+    $default  reduce using rule 7 (statement)
+
+
+State 18
+
+   10 define_line: TOKEN_IFNDEF TOKEN_IFNDEF_FILE . TOKEN_IFNDEF_END
+
+    TOKEN_IFNDEF_END  shift, and go to state 28
+
+
+State 19
+
+   11 define_line: TOKEN_IFDEF TOKEN_IFDEF_FILE . TOKEN_IFDEF_END
+
+    TOKEN_IFDEF_END  shift, and go to state 29
+
+
+State 20
+
+   13 comment: TOKEN_COMMENT_START TOKEN_COMMENT_FILE . TOKEN_COMMENT_END
+
+    TOKEN_COMMENT_END  shift, and go to state 30
+
+
+State 21
+
+   14 comment: TOKEN_COMMENT_EX_START TOKEN_COMMENT_EX_FILE . TOKEN_COMMENT_EX_END
+
+    TOKEN_COMMENT_EX_END  shift, and go to state 31
+
+
+State 22
+
+   15 include: TOKEN_INCLUDE_START TOKEN_INCLUDE_SIGN . TOKEN_INCLUDE_FILE TOKEN_INCLUDE_END
+
+    TOKEN_INCLUDE_FILE  shift, and go to state 32
+
+
+State 23
+
+   16 enum: TOKEN_ENUM_START TOKEN_ENUM_CONTENT .
+
+    $default  reduce using rule 16 (enum)
+
+
+State 24
+
+   17 struct: TOKEN_ID_START TOKEN_ID_NUM . TOKEN_ID_END TOKEN_STRUCT_START TOKEN_STRUCT_NAME TOKEN_STRUCT_CONTENT
+
+    TOKEN_ID_END  shift, and go to state 33
+
+
+State 25
+
+    9 interface: TOKEN_INTERFACE_NAME TOKEN_INTERFACE_CONTENT .
+
+    $default  reduce using rule 9 (interface)
+
+
+State 26
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+State 27
+
+    1 program: program statement .
+
+    $default  reduce using rule 1 (program)
+
+
+State 28
+
+   10 define_line: TOKEN_IFNDEF TOKEN_IFNDEF_FILE TOKEN_IFNDEF_END .
+
+    $default  reduce using rule 10 (define_line)
+
+
+State 29
+
+   11 define_line: TOKEN_IFDEF TOKEN_IFDEF_FILE TOKEN_IFDEF_END .
+
+    $default  reduce using rule 11 (define_line)
+
+
+State 30
+
+   13 comment: TOKEN_COMMENT_START TOKEN_COMMENT_FILE TOKEN_COMMENT_END .
+
+    $default  reduce using rule 13 (comment)
+
+
+State 31
+
+   14 comment: TOKEN_COMMENT_EX_START TOKEN_COMMENT_EX_FILE TOKEN_COMMENT_EX_END .
+
+    $default  reduce using rule 14 (comment)
+
+
+State 32
+
+   15 include: TOKEN_INCLUDE_START TOKEN_INCLUDE_SIGN TOKEN_INCLUDE_FILE . TOKEN_INCLUDE_END
+
+    TOKEN_INCLUDE_END  shift, and go to state 34
+
+
+State 33
+
+   17 struct: TOKEN_ID_START TOKEN_ID_NUM TOKEN_ID_END . TOKEN_STRUCT_START TOKEN_STRUCT_NAME TOKEN_STRUCT_CONTENT
+
+    TOKEN_STRUCT_START  shift, and go to state 35
+
+
+State 34
+
+   15 include: TOKEN_INCLUDE_START TOKEN_INCLUDE_SIGN TOKEN_INCLUDE_FILE TOKEN_INCLUDE_END .
+
+    $default  reduce using rule 15 (include)
+
+
+State 35
+
+   17 struct: TOKEN_ID_START TOKEN_ID_NUM TOKEN_ID_END TOKEN_STRUCT_START . TOKEN_STRUCT_NAME TOKEN_STRUCT_CONTENT
+
+    TOKEN_STRUCT_NAME  shift, and go to state 36
+
+
+State 36
+
+   17 struct: TOKEN_ID_START TOKEN_ID_NUM TOKEN_ID_END TOKEN_STRUCT_START TOKEN_STRUCT_NAME . TOKEN_STRUCT_CONTENT
+
+    TOKEN_STRUCT_CONTENT  shift, and go to state 37
+
+
+State 37
+
+   17 struct: TOKEN_ID_START TOKEN_ID_NUM TOKEN_ID_END TOKEN_STRUCT_START TOKEN_STRUCT_NAME TOKEN_STRUCT_CONTENT .
+
+    $default  reduce using rule 17 (struct)

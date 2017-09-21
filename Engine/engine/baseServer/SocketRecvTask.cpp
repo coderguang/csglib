@@ -126,7 +126,9 @@ void csg::CSocketRecvTask::doRecvLoop()
 #endif
 		if ( readRecvSize > 0 )
 		{
+			//CSG_LOG_SYS("CSocketRecvTask::doRecvLoop,readSize=" <<readRecvSize);
 			CSocketHelper::onRecvMsg(_socketfd ,buffer,readRecvSize);
+
 		}
 		CThread::sleep_for(100);
 	}
@@ -394,8 +396,6 @@ void csg::CSocketRecvTask::doLinuxLoop(){
 						//CSG_LOG_DEBUG("CSocketBase::sockett="<<ToStr(client_fd)<<"get msg="<<std::string(buf));
 
 						CSocketHelper::onRecvMsg(client_fd ,buf,nbytes);
-
-						CLinuxSocket::Write(client_fd ,buf ,nbytes);
 					}
 				}
 			}

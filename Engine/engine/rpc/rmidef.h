@@ -6,23 +6,23 @@
 
 namespace csg
 {
-	enum EMessageType
+	enum ERMIMessageType
 	{
-		EMessageTypeMQ = 1 ,
-		EMessageTypeCall = 2 ,
-		EMessageTypeCallRet = 3 ,
+		ERMIMessageTypeMQ = 1 ,
+		ERMIMessageTypeCall = 2 ,
+		ERMIMessageTypeCallRet = 3 ,
 	};
 
-	void _csg_write(CSerializeStream& __os ,EMessageType __messageType);
-	void _csg_read(CSerializeStream& __is ,EMessageType& __messageType);
+	void _csg_write(CSerializeStream& __os ,ERMIMessageType __messageType);
+	void _csg_read(CSerializeStream& __is ,ERMIMessageType& __messageType);
 
 	
 	enum ERMIDispatchResult
 	{
-		DispatchResultOk=1,
-		DispatchResultTimeout=2,
-		DispatchResultException=3,
-		DispatchObjectNotExist=4,
+		ERMIDispatchResultOk = 1 ,
+		ERMIDispatchResultTimeout = 2 ,
+		ERMIDispatchResultException = 3 ,
+		ERMIDispatchObjectNotExist = 4 ,
 	};
 
 	void _csg_write(CSerializeStream& __os ,ERMIDispatchResult __result);
@@ -31,12 +31,50 @@ namespace csg
 
 	struct SRMIInfo
 	{
-		std::string identity;
+		std::string identify;
 		std::string operation;
+
+		SRMIInfo();
+		bool operator==( const SRMIInfo& ) const;
+		bool operator!=( const SRMIInfo& ) const;
+		bool operator<( const SRMIInfo& ) const;
+
+		void _csg_init();
+		void _csg_write(CSerializeStream&) const;
+		void _csg_read(CSerializeStream&);
+	};
+
+
+	struct SRMICall
+	{
+		int messageId; //for call return
+		int rpcId;
+
+		SRMICall();
+		bool operator==( const SRMICall& ) const;
+		bool operator!=( const SRMICall& ) const;
+		bool operator<( const SRMICall& ) const;
+
+		void _csg_init();
+		void _csg_write(CSerializeStream&) const;
+		void _csg_read(CSerializeStream&);
+
 	};
 	
-	typedef std::map<int ,SRMIInfo> MapRMIInfo;
+	struct SRMIReturn
+	{
+		int messageId;
+		ERMIDispatchResult dispatchStatus;
 
+		SRMIReturn();
+		bool operator==( const SRMIReturn& ) const;
+		bool operator!=( const SRMIReturn& ) const;
+		bool operator<( const SRMIReturn& ) const;
+
+		void _csg_init();
+		void _csg_write(CSerializeStream&) const;
+		void _csg_read(CSerializeStream&);
+	};
 
 }
 #endif

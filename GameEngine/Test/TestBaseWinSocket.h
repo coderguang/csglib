@@ -181,6 +181,7 @@ int startServerEx()
 		cerr << "Listen failed. Error: " << WSAGetLastError() << endl;
 		return -1;
 	}
+	return 0;
 }
 
 

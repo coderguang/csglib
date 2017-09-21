@@ -20,6 +20,7 @@
 #include "engine/net/socket/socketManager.h"
 #include <exception>
 #include "TestSerializeEx.h"
+#include "TestRpc.h"
 
 
 void startMain()
@@ -50,20 +51,22 @@ void startMain()
 	CThreadManager::instance()->activeBaseServer(EBaseServerLoggerWritter ,dir);
 
 	CThreadManager::instance()->activeBaseServer(EBaseServerMainLogic);
-	//Æô¶¯ÍøÂçIOCP
-	if ( -1 == CSocketManager::instance()->init() )
-	{
-		CSG_LOG_DEBUG("socket init fail");
-		cin.get();
-		return ;
-	}
 
 	//Æô¶¯ÍøÂçIO·¢ËÍÏß³Ì
 
 	CThreadManager::instance()->activeBaseServer(EBaseServerSocketSend);
 
+	//Æô¶¯ÍøÂçIOCP
+	if ( -1 == CSocketManager::instance()->init() )
+	{
+		CSG_LOG_DEBUG("socket init fail");
+		cin.get();
+		return;
+	}
 
-	testSerializeEx();
+	testRPC();
+
+	//testSerializeEx();
 
 	//testCounter(5);
 

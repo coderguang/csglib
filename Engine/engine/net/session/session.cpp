@@ -2,11 +2,17 @@
 #include "engine/net/session/session.h"
 #include "framework/log/Log.h"
 #include "framework/util/typetransform.h"
+#include <limits.h>
 
 using namespace csg;
-csg::CSession::CSession(int socketfd ,std::string& addr ,int port ,bool isInner) :_socketfd(socketfd) ,_remoteAddr(addr) ,_remotePort(port) ,_isClient(isInner)
+csg::CSession::CSession(int socketfd ,std::string& addr ,int port ,bool isInner) :_socketfd(socketfd) ,_remoteAddr(addr) ,_remotePort(port) ,_isClient(isInner) ,_callBackId(1)
 {
 
+}
+
+void csg::CSession::setSocketfd(int fd)
+{
+	_socketfd = fd;
 }
 
 int csg::CSession::getSocketfd() const
@@ -40,13 +46,54 @@ bool csg::CSession::onRecvData(const void* buf ,int len)
 	return _protocol->handleRecvData(buf ,len);
 }
 
+bool csg::CSession::addRMIObject(const MapRMIObject& objects)
+{
+	for ( MapRMIObject::const_iterator it = objects.begin(); it != objects.end(); it++ )
+	{
+		assert(_rmiObjectMap.find(it->first) == _rmiObjectMap.end());
+		_rmiObjectMap[it->first] = it->second;
+	}
+	return true;
+}
+
+int csg::CSession::getCallBackId()
+{
+	if ( _callBackId < INT_MAX )
+	{
+		return _callBackId++;
+	} else
+	{
+		_callBackId = 1;
+		return _callBackId;
+	}
+}
+
+void csg::CSession::addCallBackObject(int callBackId ,CRMIObjectBindPtr& object)
+{
+	MapRMIObjectBind::const_iterator it = _callBackMap.find(callBackId);
+	assert(it == _callBackMap.cend());
+	_callBackMap[callBackId] = object;
+}
+
+bool csg::CSession::getCallBackObject(int callBackId ,CRMIObjectBindPtr& backObject)
+{
+	MapRMIObjectBind::const_iterator it = _callBackMap.find(callBackId);
+	if ( it != _callBackMap.cend() )
+	{
+		backObject = it->second;
+		return true;
+	}
+	backObject = NULL;
+	return false;
+}
+
 void csg::CSession::handlePacket()
 {
 	if ( isGetMsg() )
 	{
 		CAutoLock l(getNetRecvIoLock());
 		assert(_protocol);
-		_protocol->handlePacket();
+		_protocol->handlePacket(this);
 		setGetMsgFlag(false);
 	}
 }
@@ -56,7 +103,7 @@ bool csg::CSession::pushMessage(const CMsgBlockPtr& mb)
 	CAutoLock l(getNetSendIoLock());
 	assert(_protocol);
 	if ( _socketfd > 0 )
-		return _protocol->pushMessage(_socketfd ,mb);
+		return _protocol->pushMessage(this ,mb);
 	else
 		return false;
 }

@@ -4,6 +4,16 @@
 #date	2017-07-27
 ############################################
 
+
+BLACK = "\e[33;0m"
+RED  =  "\e[31;1m"
+GREEN = "\e[32;1m"
+YELLOW = "\e[33;3m"
+BLUE  = "\e[34;1m"
+PURPLE = "\e[35;1m"
+CYAN  = "\e[36;1m"
+WHITE = "\e[37;1m"
+
 #set project dir
 PROJECT_DIR		:=$(shell pwd)
 APP_NAME		:= Test
@@ -11,7 +21,7 @@ APP_NAME		:= Test
 #set build param
 CC	:= clang++
 CFLAG	:= -I$(PROJECT_DIR) -std=c++11 -lstdc++ -g -D _DEBUG -L../../lib/ -I../../Engine/
-LIBS := -lpthread -lEngine
+LIBS := -lpthread -lMessage -lEngine 
 RM :=rm
 
 #set file dir
@@ -52,8 +62,7 @@ all:$(APP_NAME)
 $(APP_NAME):$(CUR_OBJ)
 	@echo "start build $(APP_NAME).."
 	$(CC) $(CFLAG) -o $(PROJECT_DIR)/$@ $^ $(LIBS)
-	@echo "build $(APP_NAME) success!"
-
+	@echo -e $(GREEN) "build $(APP_NAME) success!" $(BLACK)
 .PHONY:clean
 clean :
 	@$(RM) -rf $(APP_NAME) $(CUR_OBJ) $(PROJECT_LIB_DIR)$(LIB_NAME) $(CUR_DEP) core.*

@@ -3,11 +3,12 @@
 #include "framework/log/Log.h"
 #include "framework/util/endian.h"
 #include "framework/exception/exception.h"
-#include "../GameEngine/Message/GameMsg.h"
 #include <string.h>
 #include "framework/DesignPattern/objectPool.h"
 #include "../socket/socket.h"
 #include "../../rpc/rmidef.h"
+#include "../../rpc/rmiObjectAdapter.h"
+#include "../../rpc/rmiObject.h"
 
 using namespace csg;
 
@@ -30,13 +31,13 @@ int csg::CProtocol::handleRecvData(const void* inData ,const int len)
 	return len;
 }
 
-int csg::CProtocol::handleSendData(int socketfd,const void* data ,const int len)
+int csg::CProtocol::handleSendData(const CSessionPtr& session ,const void* data ,const int len)
 {
-	return CSocketHelper::sendMsg(socketfd ,(const char*)data ,len);
+	return CSocketHelper::sendMsg(session->getSocketfd() ,(const char*)data ,len);
 	
 }
 
-bool csg::CProtocol::handlePacket(const void *inData ,const int len)
+bool csg::CProtocol::handlePacket(const CSessionPtr& session,const void *inData ,const int len)
 {
 	CAutoRecursiveLock l(getLock());
 
@@ -44,25 +45,74 @@ bool csg::CProtocol::handlePacket(const void *inData ,const int len)
 	CAutoSerializeStream is(CSerializeStreamPool::instance()->newObject());
 	is->append(inData ,len);
 
+	is->setUseBitMark(false);
+
 	is->prepareToRead();
 
-	int mqType = 0;
-	is->read(mqType);
-	if ( EMessageTypeMQ != mqType )
-	{
-		assert(false);
-		return false;
-	}
+	ERMIMessageType mqType;
+	_csg_read(*is ,mqType);
 
-	CMsgBlockPtr msg = new CMsgBlock();
-	msg->_csg_read(*is);
-
-	if ( !msg )
+	switch ( mqType )
 	{
-		assert(false);
-		return false;
+		case csg::ERMIMessageTypeMQ:
+		{
+			CMsgBlockPtr msg = new CMsgBlock();
+			msg->_csg_read(*is);
+
+			if ( !msg )
+			{
+				assert(false);
+				return false;
+			}
+			msg->_msgBase->print();
+		}
+		break;
+		case csg::ERMIMessageTypeCall:
+		{
+			SRMICall rmiCall;
+			rmiCall._csg_read(*is);
+
+			MapRMIObject mapObject;
+			if (!CRMIObjectAdapter::instance()->findRmiObject("Test" ,mapObject) )
+			{
+				return false;
+			}
+			MapRMIObject::iterator it = mapObject.find(rmiCall.rpcId);
+			if ( it == mapObject.end() )
+			{
+				return false;
+			}
+			is->setUseBitMark(true);
+			it->second->__onCall(session,rmiCall ,*is);			
+		}
+		break;
+		case csg::ERMIMessageTypeCallRet:
+		{
+			SRMIReturn rmiReturn;
+			rmiReturn._csg_read(*is);
+
+			is->setUseBitMark(true);
+
+			CSG_LOG_INFO("CProtocol::handlePacket"<<",messageId="<<rmiReturn.messageId);
+
+			if ( rmiReturn.messageId <= 0 )
+				return true;
+
+			CRMIObjectBindPtr backObject;
+			if ( !session->getCallBackObject(rmiReturn.messageId ,backObject) )
+			{
+				return false;
+			}
+			if ( backObject->_callBack )
+			{
+				backObject->_callBack->__response(*is);
+			}
+
+		}
+		break;
+		default:
+		break;
 	}
-	msg->_msgBase->print();
 
 	return true;
 
@@ -107,12 +157,11 @@ bool csg::CProtocol::handlePacket(const void *inData ,const int len)
 	return true;
 }
 
-int csg::CProtocol::pushMessage(int socketfd ,const CMsgBlockPtr& mb)
+int csg::CProtocol::pushMessage(const CSessionPtr& session ,const CMsgBlockPtr& mb)
 {
 	CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
 
-	int mqType = EMessageTypeMQ;
-	tmpOS->write(mqType);
+	_csg_write(*tmpOS ,ERMIMessageTypeMQ);
 	mb->_csg_write(*tmpOS);// _writeBody的时候写structType
 
 	//整合发送前的flag数据
@@ -130,11 +179,11 @@ int csg::CProtocol::pushMessage(int socketfd ,const CMsgBlockPtr& mb)
 	addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
 	addHeadOs->append(sendOs->getData() ,sendOs->getDataSize());
 
-	return handleSendData(socketfd,addHeadOs->getData() ,addHeadOs->getDataSize());
+	return handleSendData(session,addHeadOs->getData() ,addHeadOs->getDataSize());
 
 }
 
-bool csg::CProtocol::handlePacket()
+bool csg::CProtocol::handlePacket(const CSessionPtr& session)
 {
 	do
 	{
@@ -147,7 +196,7 @@ bool csg::CProtocol::handlePacket()
 			} else
 			{
 				//data enough for a packet
-				if ( !handlePacket(_buffer->getData() + SIZE_OF_PROTOCOL_HEAD ,_protocolHead.msgSize) )
+				if ( !handlePacket(session,_buffer->getData() + SIZE_OF_PROTOCOL_HEAD ,_protocolHead.msgSize) )
 				{
 					CSG_LOG_INFO("CProtocol::handlePacket error");
 					return false;

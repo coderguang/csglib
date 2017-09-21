@@ -13,13 +13,16 @@
   <ItemGroup>
     <ClCompile Include="..\..\GameEngine\Test\chat\client.cpp" />
     <ClCompile Include="..\..\GameEngine\Test\chat\server.cpp" />
+    <ClCompile Include="..\..\GameEngine\Test\logic\ITestImpl.cpp" />
     <ClCompile Include="..\..\GameEngine\Test\TestMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\GameEngine\Test\chat\client.h" />
     <ClInclude Include="..\..\GameEngine\Test\chat\server.h" />
+    <ClInclude Include="..\..\GameEngine\Test\logic\ITestImpl.h" />
     <ClInclude Include="..\..\GameEngine\Test\TestChat.h" />
     <ClInclude Include="..\..\GameEngine\Test\TestLog.h" />
+    <ClInclude Include="..\..\GameEngine\Test\TestRpc.h" />
     <ClInclude Include="..\..\GameEngine\Test\TestSerialize.h" />
     <ClInclude Include="..\..\GameEngine\Test\TestSerializeEx.h" />
     <ClInclude Include="..\..\GameEngine\Test\TestSmartPtr.h" />
@@ -60,7 +63,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>..\..\Engine;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\Engine;..\..\Message;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Configuration)\..\..\runnable\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -68,12 +71,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Message;..\..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>../lib/Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>../lib/Engine.lib;../lib/Message.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

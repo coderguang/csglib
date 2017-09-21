@@ -97,6 +97,8 @@
     <ClCompile Include="..\..\Engine\engine\net\socket\WinSocket.cpp" />
     <ClCompile Include="..\..\Engine\engine\rpc\rmidef.cpp" />
     <ClCompile Include="..\..\Engine\engine\rpc\rmiObject.cpp" />
+    <ClCompile Include="..\..\Engine\engine\rpc\rmiObjectAdapter.cpp" />
+    <ClCompile Include="..\..\Engine\engine\rpc\rpcHelper.cpp" />
     <ClCompile Include="..\..\Engine\engine\serialize\bytesbuffer.cpp" />
     <ClCompile Include="..\..\Engine\engine\serialize\serializestream.cpp" />
     <ClCompile Include="..\..\Engine\engine\thread\task.cpp" />
@@ -138,6 +140,8 @@
     <ClInclude Include="..\..\Engine\engine\net\socket\WinSocket.h" />
     <ClInclude Include="..\..\Engine\engine\rpc\rmidef.h" />
     <ClInclude Include="..\..\Engine\engine\rpc\rmiObject.h" />
+    <ClInclude Include="..\..\Engine\engine\rpc\rmiObjectAdapter.h" />
+    <ClInclude Include="..\..\Engine\engine\rpc\rpcHelper.h" />
     <ClInclude Include="..\..\Engine\engine\serialize\bytesbuffer.h" />
     <ClInclude Include="..\..\Engine\engine\serialize\serializestream.h" />
     <ClInclude Include="..\..\Engine\engine\thread\task.h" />

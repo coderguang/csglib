@@ -1,4 +1,3 @@
-#include "../Message/GameMsg.h"
 #include "TestSerialize.h"
 #include "../../Engine/engine/thread/thread.h"
 #include "framework/DesignPattern/objectPool.h"
@@ -8,11 +7,11 @@
 #include "engine/net/session/sessionManager.h"
 #include "engine/net/socket/socketManager.h"
 #include "engine/rpc/rmidef.h"
+#include "../Message/Test.h"
 #ifndef _TEST_TEST_SERIALIZE_EX_H_
 #define _TEST_TEST_SERIALIZE_EX_H_
 
 using namespace csg;
-using namespace Message;
 void testSend()
 {
 	//std::string host = "123.207.87.135";
@@ -34,22 +33,22 @@ void testSend()
 			break;
 		}
 
-		SeriaInt msg;
-		msg.aInt = rand() % 1000;
-		msg.print();
-
-		CSerializeStream srcOS;
-		srcOS.setUseBitMark(true);
-		msg.write(srcOS);
-		srcOS.prepareToAppend();
-
-		CSerializeStream tmpOS;
-		tmpOS.writeSize(srcOS.getFlagDataSize());
-		tmpOS.append(srcOS.getFlagData() ,srcOS.getFlagDataSize());
-		tmpOS.append(srcOS.getData() ,srcOS.getDataSize());
-
-		int sendSize = CSocketHelper::sendMsg(socketfd ,tmpOS.getData() ,tmpOS.getDataSize());
-		CSG_LOG_DEBUG("send size="<<ToStr(sendSize));
+// 		SeriaInt msg;
+// 		msg.aInt = rand() % 1000;
+// 		msg.print();
+// 
+// 		CSerializeStream srcOS;
+// 		srcOS.setUseBitMark(true);
+// 		msg.write(srcOS);
+// 		srcOS.prepareToAppend();
+// 
+// 		CSerializeStream tmpOS;
+// 		tmpOS.writeSize(srcOS.getFlagDataSize());
+// 		tmpOS.append(srcOS.getFlagData() ,srcOS.getFlagDataSize());
+// 		tmpOS.append(srcOS.getData() ,srcOS.getDataSize());
+// 
+// 		int sendSize = CSocketHelper::sendMsg(socketfd ,tmpOS.getData() ,tmpOS.getDataSize());
+// 		CSG_LOG_DEBUG("send size="<<ToStr(sendSize));
 	}
 
 }
@@ -83,29 +82,29 @@ void testSendAll()
 // 			break;
 // 		}
 
-		SeriaTestAllTest msg;
-		msg.randValue();
-		msg.print();
-
-		CSerializeStream srcOS;
-		srcOS.setUseBitMark(true);
-		msg.write(srcOS);
-		srcOS.prepareToAppend();
-
-		CSerializeStream tmpOS;
-		tmpOS.writeSize(srcOS.getFlagDataSize());
-		tmpOS.append(srcOS.getFlagData() ,srcOS.getFlagDataSize());
-		tmpOS.append(srcOS.getData() ,srcOS.getDataSize());
-
-		SProtocolHead head;
-		CSerializeStream addHeadOs;
-		head.msgSize = tmpOS.getDataSize();
-		addHeadOs.append(&head ,SIZE_OF_PROTOCOL_HEAD);
-		addHeadOs.append(tmpOS.getData() ,tmpOS.getDataSize());
-
-		int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs.getData() ,addHeadOs.getDataSize());
-
-		CSG_LOG_DEBUG("send size=" << ToStr(sendSize)<<",head.size="<<ToStr(head.msgSize));
+// 		SeriaTestAllTest msg;
+// 		msg.randValue();
+// 		msg.print();
+// 
+// 		CSerializeStream srcOS;
+// 		srcOS.setUseBitMark(true);
+// 		msg.write(srcOS);
+// 		srcOS.prepareToAppend();
+// 
+// 		CSerializeStream tmpOS;
+// 		tmpOS.writeSize(srcOS.getFlagDataSize());
+// 		tmpOS.append(srcOS.getFlagData() ,srcOS.getFlagDataSize());
+// 		tmpOS.append(srcOS.getData() ,srcOS.getDataSize());
+// 
+// 		SProtocolHead head;
+// 		CSerializeStream addHeadOs;
+// 		head.msgSize = tmpOS.getDataSize();
+// 		addHeadOs.append(&head ,SIZE_OF_PROTOCOL_HEAD);
+// 		addHeadOs.append(tmpOS.getData() ,tmpOS.getDataSize());
+// 
+// 		int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs.getData() ,addHeadOs.getDataSize());
+// 
+// 		CSG_LOG_DEBUG("send size=" << ToStr(sendSize)<<",head.size="<<ToStr(head.msgSize));
 
 		CThread::sleep_for(1000);
 	}
@@ -136,41 +135,41 @@ void testSendAllAutoStream()
 		// 			break;
 		// 		}
 
-		SeriaTestAllTest msg;
-		msg.randValue();
-		msg.print();
-
-		CAutoSerializeStream srcOS(CSerializeStreamPool::instance()->newObject());
-		srcOS->setUseBitMark(true);
-		msg.write(*srcOS);
-		srcOS->prepareToAppend();
-
-		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
-		tmpOS->writeSize(srcOS->getFlagDataSize());
-		tmpOS->append(srcOS->getFlagData() ,srcOS->getFlagDataSize());
-		tmpOS->append(srcOS->getData() ,srcOS->getDataSize());
-
-		SProtocolHead head;
-		CAutoSerializeStream addHeadOs(CSerializeStreamPool::instance()->newObject());
-		head.msgSize = tmpOS->getDataSize();
-		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
-		addHeadOs->append(tmpOS->getData() ,tmpOS->getDataSize());
-
-		int totalSize = addHeadOs->getDataSize();
-		int haveSend = 0;
-		while ( totalSize > 0 )
-		{
-			int realSend = 0;
-			if ( totalSize > 100 )
-				realSend = 100;
-			else
-				realSend = totalSize;
-			int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() + haveSend ,realSend);
-			haveSend += sendSize;
-			totalSize -= sendSize;
-			CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
-			CThread::sleep_for(100);
-		}
+// 		SeriaTestAllTest msg;
+// 		msg.randValue();
+// 		msg.print();
+// 
+// 		CAutoSerializeStream srcOS(CSerializeStreamPool::instance()->newObject());
+// 		srcOS->setUseBitMark(true);
+// 		msg.write(*srcOS);
+// 		srcOS->prepareToAppend();
+// 
+// 		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
+// 		tmpOS->writeSize(srcOS->getFlagDataSize());
+// 		tmpOS->append(srcOS->getFlagData() ,srcOS->getFlagDataSize());
+// 		tmpOS->append(srcOS->getData() ,srcOS->getDataSize());
+// 
+// 		SProtocolHead head;
+// 		CAutoSerializeStream addHeadOs(CSerializeStreamPool::instance()->newObject());
+// 		head.msgSize = tmpOS->getDataSize();
+// 		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
+// 		addHeadOs->append(tmpOS->getData() ,tmpOS->getDataSize());
+// 
+// 		int totalSize = addHeadOs->getDataSize();
+// 		int haveSend = 0;
+// 		while ( totalSize > 0 )
+// 		{
+// 			int realSend = 0;
+// 			if ( totalSize > 100 )
+// 				realSend = 100;
+// 			else
+// 				realSend = totalSize;
+// 			int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() + haveSend ,realSend);
+// 			haveSend += sendSize;
+// 			totalSize -= sendSize;
+// 			CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
+// 			CThread::sleep_for(100);
+// 		}
 
 		CThread::sleep_for(1000);
 	}
@@ -201,38 +200,38 @@ void testSendAllAutoStreamEx()
 		// 		{
 		// 			break;
 		// 		}
-		SeriaTestAllTest msg;
-		msg.randValue();
-		//msg.print();
-
-		CAutoSerializeStream srcOS(CSerializeStreamPool::instance()->newObject());
-		srcOS->setUseBitMark(true);
-		msg.write(*srcOS);
-		srcOS->prepareToAppend();
-
-		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
-		tmpOS->writeSize(srcOS->getFlagDataSize());
-		tmpOS->append(srcOS->getFlagData() ,srcOS->getFlagDataSize());
-		tmpOS->append(srcOS->getData() ,srcOS->getDataSize());
-
-		SProtocolHead head;
-		head.msgSize = tmpOS->getDataSize();
-
-		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
-		addHeadOs->append(tmpOS->getData() ,tmpOS->getDataSize());
-		int sendSize = 0;
-		if ( times == 1 )
-		{
-			sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() ,addHeadOs->getDataSize());
-			CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
-		}
-		times++;
-
-		if ( times == 2 )
-		{
-			addHeadOs->reset();
-			times = 0;
-		}
+// 		SeriaTestAllTest msg;
+// 		msg.randValue();
+// 		//msg.print();
+// 
+// 		CAutoSerializeStream srcOS(CSerializeStreamPool::instance()->newObject());
+// 		srcOS->setUseBitMark(true);
+// 		msg.write(*srcOS);
+// 		srcOS->prepareToAppend();
+// 
+// 		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
+// 		tmpOS->writeSize(srcOS->getFlagDataSize());
+// 		tmpOS->append(srcOS->getFlagData() ,srcOS->getFlagDataSize());
+// 		tmpOS->append(srcOS->getData() ,srcOS->getDataSize());
+// 
+// 		SProtocolHead head;
+// 		head.msgSize = tmpOS->getDataSize();
+// 
+// 		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
+// 		addHeadOs->append(tmpOS->getData() ,tmpOS->getDataSize());
+// 		int sendSize = 0;
+// 		if ( times == 1 )
+// 		{
+// 			sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() ,addHeadOs->getDataSize());
+// 			CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
+// 		}
+// 		times++;
+// 
+// 		if ( times == 2 )
+// 		{
+// 			addHeadOs->reset();
+// 			times = 0;
+// 		}
 
 		CThread::sleep_for(100);
 	}
@@ -262,47 +261,47 @@ void testSendAllAutoStreamExWithType()
 		ch= cin.get();
 		cin.get();
 		
-		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
-		msg->randValue();
-
-		SeriaIntExPtr ai = new SeriaIntEx();
-		ai->aInt = 9998;
-
-		CAutoSerializeStream srcOS(CSerializeStreamPool::instance()->newObject());
-		srcOS->setUseBitMark(true);
-
-		int structType = 0;
-		if ( 'o' == ch )
-		{
-			msg->_csg_write(*srcOS);
-			structType = msg->getType();
-			msg->print();
-		} else
-		{
-			ai->_csg_write(*srcOS);
-			structType = ai->getType();
-			ai->print();
-		}
-
-		srcOS->prepareToAppend();
-		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
-	//写入type
-		int mqType = EMessageTypeMQ;
-		tmpOS->write(mqType);
-		tmpOS->write(structType);
-
-
-		tmpOS->writeSize(srcOS->getFlagDataSize());
-		tmpOS->append(srcOS->getFlagData() ,srcOS->getFlagDataSize());
-		tmpOS->append(srcOS->getData() ,srcOS->getDataSize());
-
-		SProtocolHead head;
-		head.msgSize = tmpOS->getDataSize();
-
-		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
-		addHeadOs->append(tmpOS->getData() ,tmpOS->getDataSize());
-		int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() ,addHeadOs->getDataSize());
-		CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
+// 		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
+// 		msg->randValue();
+// 
+// 		SeriaIntExPtr ai = new SeriaIntEx();
+// 		ai->aInt = 9998;
+// 
+// 		CAutoSerializeStream srcOS(CSerializeStreamPool::instance()->newObject());
+// 		srcOS->setUseBitMark(true);
+// 
+// 		int structType = 0;
+// 		if ( 'o' == ch )
+// 		{
+// 			msg->_csg_write(*srcOS);
+// 			structType = msg->getType();
+// 			msg->print();
+// 		} else
+// 		{
+// 			ai->_csg_write(*srcOS);
+// 			structType = ai->getType();
+// 			ai->print();
+// 		}
+// 
+// 		srcOS->prepareToAppend();
+// 		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
+// 	//写入type
+// 		int mqType = EMessageTypeMQ;
+// 		tmpOS->write(mqType);
+// 		tmpOS->write(structType);
+// 
+// 
+// 		tmpOS->writeSize(srcOS->getFlagDataSize());
+// 		tmpOS->append(srcOS->getFlagData() ,srcOS->getFlagDataSize());
+// 		tmpOS->append(srcOS->getData() ,srcOS->getDataSize());
+// 
+// 		SProtocolHead head;
+// 		head.msgSize = tmpOS->getDataSize();
+// 
+// 		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
+// 		addHeadOs->append(tmpOS->getData() ,tmpOS->getDataSize());
+// 		int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() ,addHeadOs->getDataSize());
+// 		CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
 		
 		CThread::sleep_for(100);
 	}
@@ -332,51 +331,51 @@ void testSendAllAutoStreamExWithTypeByPush()
 		//ch = cin.get();
 		cin.get();
 
-		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
-		msg->randValue();
-
-		SeriaIntExPtr ai = new SeriaIntEx();
-		ai->aInt = 9998;
-
-
-		CMsgBlockPtr mb = new CMsgBlock();
-		mb->_msgHead.command = 988;
-		mb->_msgHead.fromId.id = 1992;
-		if ( times%2==0)
-		{
-			mb->_msgBase = msg;
-		} else
-		{
-			mb->_msgBase = ai;
-		}
-
-		mb->_msgBase->print();
-
-		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
-		//写入type
-		int mqType = EMessageTypeMQ;
-		tmpOS->write(mqType);		
-		mb->_csg_write(*tmpOS);// _writeBody的时候写structType
-
-		//整合发送前的数据
-		tmpOS->prepareToAppend();
-
-		CAutoSerializeStream  sendOs(CSerializeStreamPool::instance()->newObject());
-		sendOs->writeSize(tmpOS->getFlagDataSize());
-		sendOs->append(tmpOS->getFlagData() ,tmpOS->getFlagDataSize());
-		sendOs->append(tmpOS->getData() ,tmpOS->getDataSize());
-
-
-		//加协议头
-		SProtocolHead head;
-		head.msgSize = sendOs->getDataSize();
-		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
-		addHeadOs->append(sendOs->getData() ,sendOs->getDataSize());
-
-		int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() ,addHeadOs->getDataSize());
-		CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
-
-		CThread::sleep_for(100);
+// 		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
+// 		msg->randValue();
+// 
+// 		SeriaIntExPtr ai = new SeriaIntEx();
+// 		ai->aInt = 9998;
+// 
+// 
+// 		CMsgBlockPtr mb = new CMsgBlock();
+// 		mb->_msgHead.command = 988;
+// 		mb->_msgHead.fromId.id = 1992;
+// 		if ( times%2==0)
+// 		{
+// 			mb->_msgBase = msg;
+// 		} else
+// 		{
+// 			mb->_msgBase = ai;
+// 		}
+// 
+// 		mb->_msgBase->print();
+// 
+// 		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
+// 		//写入type
+// 		int mqType = EMessageTypeMQ;
+// 		tmpOS->write(mqType);		
+// 		mb->_csg_write(*tmpOS);// _writeBody的时候写structType
+// 
+// 		//整合发送前的数据
+// 		tmpOS->prepareToAppend();
+// 
+// 		CAutoSerializeStream  sendOs(CSerializeStreamPool::instance()->newObject());
+// 		sendOs->writeSize(tmpOS->getFlagDataSize());
+// 		sendOs->append(tmpOS->getFlagData() ,tmpOS->getFlagDataSize());
+// 		sendOs->append(tmpOS->getData() ,tmpOS->getDataSize());
+// 
+// 
+// 		//加协议头
+// 		SProtocolHead head;
+// 		head.msgSize = sendOs->getDataSize();
+// 		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
+// 		addHeadOs->append(sendOs->getData() ,sendOs->getDataSize());
+// 
+// 		int sendSize = CSocketHelper::sendMsg(socketfd ,addHeadOs->getData() ,addHeadOs->getDataSize());
+// 		CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
+// 
+// 		CThread::sleep_for(100);
 
 		times++;
 	}
@@ -400,7 +399,7 @@ void testSendAllAutoStreamExWithTypeBySession()
 	CSessionPtr session = new CSession(socketfd ,host ,DefaultPort ,false);
 	CProtocolPtr protocol = new CProtocol();
 	session->setProtocol(protocol);
-	session->_socketfd = socketfd;
+	session->setSocketfd(socketfd);
 
 	int times = 0;
 	while ( true )
@@ -409,54 +408,54 @@ void testSendAllAutoStreamExWithTypeBySession()
 		CSG_LOG_DEBUG("enter o for 1");
 		//ch = cin.get();
 		cin.get();
-
-		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
-		msg->randValue();
-
-		SeriaIntExPtr ai = new SeriaIntEx();
-		ai->aInt = 9998;
-
-
-		CMsgBlockPtr mb = new CMsgBlock();
-		mb->_msgHead.command = 988;
-		mb->_msgHead.fromId.id = 1992;
-		if ( times % 2 == 0 )
-		{
-			mb->_msgBase = msg;
-		} else
-		{
-			mb->_msgBase = ai;
-		}
-
-		mb->_msgBase->print();
-
-
-
-		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
-		//写入type
-		int mqType = EMessageTypeMQ;
-		tmpOS->write(mqType);
-		mb->_csg_write(*tmpOS);// _writeBody的时候写structType
-
-		//整合发送前的数据
-		tmpOS->prepareToAppend();
-
-		CAutoSerializeStream  sendOs(CSerializeStreamPool::instance()->newObject());
-		sendOs->writeSize(tmpOS->getFlagDataSize());
-		sendOs->append(tmpOS->getFlagData() ,tmpOS->getFlagDataSize());
-		sendOs->append(tmpOS->getData() ,tmpOS->getDataSize());
-
-
-		//加协议头
-		SProtocolHead head;
-		head.msgSize = sendOs->getDataSize();
-		CAutoSerializeStream addHeadOs(CSerializeStreamPool::instance()->newObject());
-		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
-		addHeadOs->append(sendOs->getData() ,sendOs->getDataSize());
-
-		int sendSize=CSocketHelper::sendMsg(session->getSocketfd(),addHeadOs->getData() ,addHeadOs->getDataSize());
-
-		CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
+// 
+// 		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
+// 		msg->randValue();
+// 
+// 		SeriaIntExPtr ai = new SeriaIntEx();
+// 		ai->aInt = 9998;
+// 
+// 
+// 		CMsgBlockPtr mb = new CMsgBlock();
+// 		mb->_msgHead.command = 988;
+// 		mb->_msgHead.fromId.id = 1992;
+// 		if ( times % 2 == 0 )
+// 		{
+// 			mb->_msgBase = msg;
+// 		} else
+// 		{
+// 			mb->_msgBase = ai;
+// 		}
+// 
+// 		mb->_msgBase->print();
+// 
+// 
+// 
+// 		CAutoSerializeStream  tmpOS(CSerializeStreamPool::instance()->newObject());
+// 		//写入type
+// 		int mqType = EMessageTypeMQ;
+// 		tmpOS->write(mqType);
+// 		mb->_csg_write(*tmpOS);// _writeBody的时候写structType
+// 
+// 		//整合发送前的数据
+// 		tmpOS->prepareToAppend();
+// 
+// 		CAutoSerializeStream  sendOs(CSerializeStreamPool::instance()->newObject());
+// 		sendOs->writeSize(tmpOS->getFlagDataSize());
+// 		sendOs->append(tmpOS->getFlagData() ,tmpOS->getFlagDataSize());
+// 		sendOs->append(tmpOS->getData() ,tmpOS->getDataSize());
+// 
+// 
+// 		//加协议头
+// 		SProtocolHead head;
+// 		head.msgSize = sendOs->getDataSize();
+// 		CAutoSerializeStream addHeadOs(CSerializeStreamPool::instance()->newObject());
+// 		addHeadOs->append(&head ,SIZE_OF_PROTOCOL_HEAD);
+// 		addHeadOs->append(sendOs->getData() ,sendOs->getDataSize());
+// 
+// 		int sendSize=CSocketHelper::sendMsg(session->getSocketfd(),addHeadOs->getData() ,addHeadOs->getDataSize());
+// 
+// 		CSG_LOG_DEBUG("send size=" << ToStr(sendSize) << ",head.size=" << ToStr(head.msgSize));
 
 		CThread::sleep_for(100);
 
@@ -482,7 +481,7 @@ void testSendByTask()
 	CSessionPtr session = new CSession(socketfd ,host ,DefaultPort ,false);
 	CProtocolPtr protocol = new CProtocol();
 	session->setProtocol(protocol);
-	session->_socketfd = socketfd;
+	session->setSocketfd(socketfd);
 
 	CSessionManager::instance()->addSession(session);
 
@@ -494,11 +493,11 @@ void testSendByTask()
 		//ch = cin.get();
 		cin.get();
 
-		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
-		msg->randValue();
-
-		SeriaIntExPtr ai = new SeriaIntEx();
-		ai->aInt = 9998;
+// 		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
+// 		msg->randValue();
+// 
+// 		SeriaIntExPtr ai = new SeriaIntEx();
+// 		ai->aInt = 9998;
 
 
 		CMsgBlockPtr mb = new CMsgBlock();
@@ -506,10 +505,10 @@ void testSendByTask()
 		mb->_msgHead.fromId.id = 1992;
 		if ( times % 2 == 0 )
 		{
-			mb->_msgBase = msg;
+			//mb->_msgBase = msg;
 		} else
 		{
-			mb->_msgBase = ai;
+			//mb->_msgBase = ai;
 		}
 
 		mb->_msgBase->print();
@@ -526,8 +525,8 @@ void testSendByTask()
 
 void testClientRecv()
 {
-	std::string host = "123.207.87.135";
-	//std::string host = "127.0.0.1";
+	//std::string host = "123.207.87.135";
+	std::string host = "127.0.0.1";
 
 	
 	int socketfd = CSocketManager::instance()->startConnect(AF_INET ,SOCK_STREAM ,0 ,DefaultPort ,host);
@@ -540,7 +539,7 @@ void testClientRecv()
 	CSessionPtr session = new CSession(socketfd ,host ,DefaultPort ,false);
 	CProtocolPtr protocol = new CProtocol();
 	session->setProtocol(protocol);
-	session->_socketfd = socketfd;
+	session->setSocketfd(socketfd);
 
 	CSessionManager::instance()->addSession(session);
 
@@ -552,25 +551,23 @@ void testClientRecv()
 		//ch = cin.get();
 		cin.get();
 
-		SeriaTestAllTestExPtr msg = new SeriaTestAllTestEx();
-		//msg->randValue();
-
-		SeriaIntExPtr ai = new SeriaIntEx();
-		ai->aInt = 9998;
-
 
 		CMsgBlockPtr mb = new CMsgBlock();
 		mb->_msgHead.command = 988;
 		mb->_msgHead.fromId.id = 1992;
-		if ( times % 2 == 0 )
-		{
-			mb->_msgBase = msg;
-		} else
-		{
-			mb->_msgBase = ai;
-		}
-
-		//mb->_msgBase->print();
+		
+// 		tei_Ptr test = new tei();
+// 		test->a = 97987;
+// 		test->bt = true;
+// 		test->l = 76876886;
+// 		test->str = "hi,csgl";
+// 		test->ss = "royalchen";
+// 		test->vs.push_back("gwe");
+// 		test->vs.push_back("gwgwe");
+// 		test->vs.push_back("gwe154");
+// 		
+// 		mb->_msgBase = test;
+		
 
 		CMsgQueue::instance()->pushMessage(session->getSocketfd() ,mb);
 
@@ -582,12 +579,58 @@ void testClientRecv()
 	cin.get();
 }
 
+void testCsgl()
+{
+	std::string host = "127.0.0.1";
 
+
+	int socketfd = CSocketManager::instance()->startConnect(AF_INET ,SOCK_STREAM ,0 ,DefaultPort ,host);
+	if ( -1 == socketfd )
+	{
+		CSG_LOG_DEBUG("testSend get socket fail");
+		return;
+	}
+
+	CSessionPtr session = new CSession(socketfd ,host ,DefaultPort ,false);
+	CProtocolPtr protocol = new CProtocol();
+	session->setProtocol(protocol);
+	session->setSocketfd(socketfd);
+
+	CSessionManager::instance()->addSession(session);
+
+	int times = 0;
+	while ( true )
+	{
+		char ch;
+		CSG_LOG_DEBUG("enter o for 1");
+		ch = cin.get();
+		cin.get();
+
+
+		CMsgBlockPtr mb = new CMsgBlock();
+		mb->_msgHead.command = 988;
+		mb->_msgHead.fromId.id = 1992;
+
+		Message::STest_Ptr test = new Message::STest();
+		test->a = 1900;
+		test->b = 2312;
+
+		mb->_msgBase = test;
+
+		CMsgQueue::instance()->pushMessage(session->getSocketfd() ,mb);
+
+		CThread::sleep_for(100);
+
+		times++;
+	}
+}
 
 
 void testSerializeEx()
 {
-	CGateMsg msg;
+// 	CGateMsg msg;
+// 	Cstruct::regist();
+	Message::CTest::regist();
 	char ch;
 	do
 	{
@@ -599,7 +642,8 @@ void testSerializeEx()
 			break;
 		} else if ( 'c' == ch )
 		{
-			testClientRecv();
+			testCsgl();
+			//testClientRecv();
 			//testSendByTask();
 			//testSendAllAutoStreamExWithTypeBySession();
 			//testSendAllAutoStreamExWithTypeByPush();

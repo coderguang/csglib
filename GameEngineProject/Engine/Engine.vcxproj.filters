@@ -180,6 +180,12 @@
     <ClCompile Include="..\..\Engine\engine\rpc\rmidef.cpp">
       <Filter>Src\engine\rpc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Engine\engine\rpc\rpcHelper.cpp">
+      <Filter>Src\engine\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Engine\engine\rpc\rmiObjectAdapter.cpp">
+      <Filter>Src\engine\rpc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Engine\engine\serialize\bytesbuffer.h">
@@ -312,6 +318,12 @@
       <Filter>Src\engine\rpc</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Engine\engine\rpc\rmidef.h">
+      <Filter>Src\engine\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\engine\rpc\rpcHelper.h">
+      <Filter>Src\engine\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\engine\rpc\rmiObjectAdapter.h">
       <Filter>Src\engine\rpc</Filter>
     </ClInclude>
   </ItemGroup>

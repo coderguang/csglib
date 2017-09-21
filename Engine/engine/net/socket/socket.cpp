@@ -5,7 +5,6 @@
 #include <string.h>
 #include "framework/util/typetransform.h"
 #include "../../serialize/serializestream.h"
-#include "../GameEngine/Message/GameMsg.h"
 #include "../../mq/msgQueue.h"
 
 using namespace csg;
@@ -71,6 +70,13 @@ void csg::CSocketHelper::onConnected(int clientfd ,std::string& remoteAddr ,int 
 	session->print("onConnected");
 	CProtocolPtr protocol = new CProtocol();
 	session->setProtocol(protocol);
+
+	//¹¹½¨rpc
+	MapRMIObject objects;
+	if ( CRMIObjectAdapter::instance()->findRmiObject("Test" ,objects) )
+	{
+		session->addRMIObject(objects);
+	}
 	CSessionManager::instance()->addSession(session);
 }
 
@@ -92,15 +98,4 @@ void csg::CSocketHelper::onRecvMsg(int clientfd ,const char* buf ,int len)
 	}
 
 	CSessionManager::instance()->onRecvData(clientfd ,buf ,len);
-
-
-	Message::SeriaIntExPtr test = new Message::SeriaIntEx();
-	test->aInt = 1122;
-
-	CMsgBlockPtr mb = new CMsgBlock();
-	mb->_msgHead.command = 111;
-	mb->_msgHead.fromId.id = 2017;
-	mb->_msgBase = test;
-
-	CMsgQueue::instance()->pushMessage(clientfd ,mb);
 }

@@ -4,6 +4,17 @@
 #date	2017-07-27
 ############################################
 
+BLACK = "\e[33;0m"
+RED  =  "\e[31;1m"
+GREEN = "\e[32;1m"
+YELLOW = "\e[33;3m"
+BLUE  = "\e[34;1m"
+PURPLE = "\e[35;1m"
+CYAN  = "\e[36;1m"
+WHITE = "\e[37;1m"
+
+
+
 #set project dir
 PROJECT_DIR		:=$(shell pwd)
 PROJECT_BIN_DIR	:=../bin/
@@ -55,7 +66,8 @@ all:$(LIB_NAME)
 $(LIB_NAME):$(CUR_OBJ)
 	@echo "start build $(LIB_NAME).."
 	ar cr $(PROJECT_LIB_DIR)$@ $^ 
-	@echo "build $(LIB_NAME) success!"
+	@echo -e $(GREEN) "build $(LIB_NAME) success!" $(BLACK)
+
 
 .PHONY:clean
 clean :

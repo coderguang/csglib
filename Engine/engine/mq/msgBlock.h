@@ -60,7 +60,10 @@ namespace csg
 		{
 		};
 		virtual IMsgBase* clone() = 0;
-		IMsgBase& operator = ( const IMsgBase& msg );
+		IMsgBase& operator= ( const IMsgBase& msg )
+		{
+			return *this;
+		};
 		virtual int getType()const = 0;
 
 		virtual void print()

@@ -24,7 +24,7 @@ namespace csg
 	class CSerializeStream :public virtual CBytesBuffer
 	{
 	public:
-		CSerializeStream();
+		explicit CSerializeStream();
 		~CSerializeStream();
 
 		void append(const void* buf ,int length);

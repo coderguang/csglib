@@ -7,6 +7,9 @@
     <Filter Include="Src\chat">
       <UniqueIdentifier>{d340dd58-e62b-4cb6-a828-c3daeb7ac2c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\logic">
+      <UniqueIdentifier>{aca6687a-5ab0-40ab-857f-207d8558cc51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\GameEngine\Test\TestMain.cpp">
@@ -17,6 +20,9 @@
     </ClCompile>
     <ClCompile Include="..\..\GameEngine\Test\chat\server.cpp">
       <Filter>Src\chat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameEngine\Test\logic\ITestImpl.cpp">
+      <Filter>Src\logic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +58,12 @@
     </ClInclude>
     <ClInclude Include="..\..\GameEngine\Test\TestSerializeEx.h">
       <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameEngine\Test\TestRpc.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameEngine\Test\logic\ITestImpl.h">
+      <Filter>Src\logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
