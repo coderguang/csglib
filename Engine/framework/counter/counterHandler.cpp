@@ -41,7 +41,7 @@ void CCounterHandler::decreaseCountEx(int dec)
 	_countEx -= dec;
 }
 
-void CCounterHandler::print(IIOHandler* handle)
+void CCounterHandler::print()
 {
 	CSG_LOG_SYS("CounterHandlerName:"<<_name<<" _count:"<<ToStr(_count)<< ",_countEx:"<<ToStr(_countEx));
 }

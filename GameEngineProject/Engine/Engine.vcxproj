@@ -50,11 +50,16 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_LIB;WIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -109,9 +114,15 @@
     <ClCompile Include="..\..\Engine\framework\datetime\datetime.cpp" />
     <ClCompile Include="..\..\Engine\framework\datetime\datetimeHelper.cpp" />
     <ClCompile Include="..\..\Engine\framework\exception\exception.cpp" />
+    <ClCompile Include="..\..\Engine\framework\json\json_reader.cpp" />
+    <ClCompile Include="..\..\Engine\framework\json\json_value.cpp" />
+    <ClCompile Include="..\..\Engine\framework\json\json_writer.cpp" />
     <ClCompile Include="..\..\Engine\framework\log\Log.cpp" />
     <ClCompile Include="..\..\Engine\framework\SmartPoint\refObject.cpp" />
     <ClCompile Include="..\..\Engine\framework\SmartPoint\smartPoint.cpp" />
+    <ClCompile Include="..\..\Engine\framework\timer\timeNode.cpp" />
+    <ClCompile Include="..\..\Engine\framework\timer\timer.cpp" />
+    <ClCompile Include="..\..\Engine\framework\timer\timerManager.cpp" />
     <ClCompile Include="..\..\Engine\framework\util\sysUtil.cpp" />
     <ClCompile Include="..\..\Engine\framework\util\typetransform.cpp" />
   </ItemGroup>
@@ -156,12 +167,31 @@
     <ClInclude Include="..\..\Engine\framework\exception\exception.h" />
     <ClInclude Include="..\..\Engine\framework\io\IOHandler.h" />
     <ClInclude Include="..\..\Engine\framework\io\PrintIOHandler.h" />
+    <ClInclude Include="..\..\Engine\framework\json\allocator.h" />
+    <ClInclude Include="..\..\Engine\framework\json\assertions.h" />
+    <ClInclude Include="..\..\Engine\framework\json\autolink.h" />
+    <ClInclude Include="..\..\Engine\framework\json\config.h" />
+    <ClInclude Include="..\..\Engine\framework\json\features.h" />
+    <ClInclude Include="..\..\Engine\framework\json\forwards.h" />
+    <ClInclude Include="..\..\Engine\framework\json\json.h" />
+    <ClInclude Include="..\..\Engine\framework\json\json_tool.h" />
+    <ClInclude Include="..\..\Engine\framework\json\reader.h" />
+    <ClInclude Include="..\..\Engine\framework\json\value.h" />
+    <ClInclude Include="..\..\Engine\framework\json\version.h" />
+    <ClInclude Include="..\..\Engine\framework\json\writer.h" />
     <ClInclude Include="..\..\Engine\framework\log\Log.h" />
     <ClInclude Include="..\..\Engine\framework\SmartPoint\refObject.h" />
     <ClInclude Include="..\..\Engine\framework\SmartPoint\smartPoint.h" />
+    <ClInclude Include="..\..\Engine\framework\timer\timeNode.h" />
+    <ClInclude Include="..\..\Engine\framework\timer\timer.h" />
+    <ClInclude Include="..\..\Engine\framework\timer\timerManager.h" />
     <ClInclude Include="..\..\Engine\framework\util\endian.h" />
     <ClInclude Include="..\..\Engine\framework\util\sysUtil.h" />
     <ClInclude Include="..\..\Engine\framework\util\typetransform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Engine\framework\json\json_valueiterator.inl" />
+    <None Include="..\..\Engine\framework\json\version.h.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

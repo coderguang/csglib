@@ -7,6 +7,7 @@
 using namespace csg;
 
 int CDateTime::_localTimeZone = -8;
+const CInterval CInterval::_zero(0,0);
 
 const int SECONDS_TO_MILLSECONDS=1000;
 const int TIME_ZERO_YEAR = 1900;

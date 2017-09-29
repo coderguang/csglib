@@ -5,9 +5,25 @@
 #include "framework/counter/counterHandler.h"
 #include "framework/DesignPattern/Singleton.h"
 #include "framework/io/IOHandler.h"
+#include "../timer/timer.h"
 
 namespace csg
 {
+
+	class CCounterHandlerTimer :public virtual CTimerBase
+	{
+	public:
+		CCounterHandlerTimer() :CTimerBase("CCounterHandlerTimer")
+		{
+		}
+
+		virtual int handleTimeOut(
+			CDateTime& current);
+
+	};
+	typedef CSmartPointShare<CCounterHandlerTimer> CCounterHandlerTimerPtr;
+
+
 	class CCounterHandlerManager
 	{
 	public:
@@ -16,7 +32,9 @@ namespace csg
 
 		static void removeCounterHandler( CCounterHandler* handler);
 
-		static void printCounterHandler(IIOHandler* handle);
+		static void printCounterHandler();
+
+		static void initPrintCounterTimer();
 
 	private:
 		static std::list<CCounterHandler*>& getCounterHandler();

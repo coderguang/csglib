@@ -1,0 +1,145 @@
+[12318][12318] 2017-09-28 12:18:04.421: LogDebug : Program run in below environment !!!
+[12318][12318] 2017-09-28 12:18:04.421: LogDebug : _DEBUG set
+[12318][12318] 2017-09-28 12:18:04.421: LogDebug : CSG_LINUX set
+[12318][12318] 2017-09-28 12:18:04.421: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[12318][12318] 2017-09-28 12:18:04.421: LogDebug : js={
+	"array" : 
+	[
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9
+	],
+	"hello" : "hello",
+	"hi" : 1
+}
+
+[12318][12318] 2017-09-28 12:18:04.421: LogDebug : root={
+	"array" : 
+	[
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9
+	],
+	"hello" : "hello",
+	"hi" : 1
+}
+
+[12318][12318] 2017-09-28 12:18:04.421: LogDebug : enter s fro server,c fro client,other for nothing
+[12318][12320] 2017-09-28 12:18:04.421: LogSys : CLoggerWritterTask::run start
+[12318][12321] 2017-09-28 12:18:04.421: LogSys : CMainLogicTask::run start
+[12318][12322] 2017-09-28 12:18:04.421: LogSys : CSocketSendTask::start 
+[12318][12319] 2017-09-28 12:18:04.421: LogSys : CUpdateDtTask::run start
+[12648][12648] 2017-09-28 12:20:06.886: LogDebug : Program run in below environment !!!
+[12648][12648] 2017-09-28 12:20:06.886: LogDebug : _DEBUG set
+[12648][12648] 2017-09-28 12:20:06.886: LogDebug : CSG_LINUX set
+[12648][12648] 2017-09-28 12:20:06.886: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[12648][12648] 2017-09-28 12:20:06.886: LogDebug : js={
+	"array" : 
+	[
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9
+	],
+	"hello" : "hello",
+	"hi" : 1
+}
+
+[12648][12648] 2017-09-28 12:20:06.886: LogDebug : root={
+	"array" : 
+	[
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9
+	],
+	"hello" : "hello",
+	"hi" : 1
+}
+
+[12648][12648] 2017-09-28 12:20:06.886: LogDebug : enter s fro server,c fro client,other for nothing
+[12648][12651] 2017-09-28 12:20:06.886: LogSys : CMainLogicTask::run start
+[12648][12652] 2017-09-28 12:20:06.886: LogSys : CSocketSendTask::start 
+[12648][12649] 2017-09-28 12:20:06.886: LogSys : CUpdateDtTask::run start
+[12648][12650] 2017-09-28 12:20:06.886: LogSys : CLoggerWritterTask::run start
+[15441][15441] 2017-09-28 13:23:51.582: LogDebug : Program run in below environment !!!
+[15441][15441] 2017-09-28 13:23:51.582: LogDebug : _DEBUG set
+[15441][15441] 2017-09-28 13:23:51.582: LogDebug : CSG_LINUX set
+[15441][15441] 2017-09-28 13:23:51.582: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[15441][15441] 2017-09-28 13:23:51.582: LogDebug : js={
+	"array" : 
+	[
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9
+	],
+	"hello" : "hello",
+	"hi" : 1
+}
+
+[15441][15441] 2017-09-28 13:23:51.582: LogDebug : root={
+	"array" : 
+	[
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9
+	],
+	"hello" : "hello",
+	"hi" : 1
+}
+
+[15441][15441] 2017-09-28 13:23:51.582: LogDebug : enter s fro server,c fro client,other for nothing
+[15441][15444] 2017-09-28 13:23:51.582: LogSys : CMainLogicTask::run start
+[15441][15445] 2017-09-28 13:23:51.582: LogSys : CSocketSendTask::start 
+[15441][15442] 2017-09-28 13:23:51.582: LogSys : CUpdateDtTask::run start
+[15441][15443] 2017-09-28 13:23:51.582: LogSys : CLoggerWritterTask::run start
+[1678][1678] 2017-09-28 21:00:27.608: LogDebug : Program run in below environment !!!
+[1678][1678] 2017-09-28 21:00:27.608: LogDebug : _DEBUG set
+[1678][1678] 2017-09-28 21:00:27.608: LogDebug : CSG_LINUX set
+[1678][1678] 2017-09-28 21:00:27.608: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[1678][1678] 2017-09-28 21:00:27.608: LogDebug : enter anykey for exit!
+[1678][1681] 2017-09-28 21:00:27.608: LogSys : CMainLogicTask::run start
+[1678][1682] 2017-09-28 21:00:27.608: LogSys : CSocketSendTask::start 
+[1678][1679] 2017-09-28 21:00:27.608: LogSys : CUpdateDtTask::run start
+[1678][1680] 2017-09-28 21:00:27.608: LogSys : CLoggerWritterTask::run start
+[1678][1681] 2017-09-28 21:00:32.613: LogInfo : CTestTimer::handleTimeOut,flag=2,dt=2017-09-28 21:00:32.613

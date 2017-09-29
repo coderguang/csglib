@@ -23,8 +23,8 @@ LIB_NAME		:= libEngine.a
 
 #set build param
 CC	:= clang++
-CFLAG	:= -I$(PROJECT_DIR) -std=c++11 -lstdc++ -D _DEBUG
-LIBS	:= -lMessage
+CFLAG	:= -I$(PROJECT_DIR) -std=c++11 -D _DEBUG
+LIBS	:= 
 RM :=rm
 
 

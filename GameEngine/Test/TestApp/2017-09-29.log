@@ -1,0 +1,146 @@
+[9603][9603] 2017-09-29 00:02:36.231: LogDebug : Program run in below environment !!!
+[9603][9603] 2017-09-29 00:02:36.231: LogDebug : _DEBUG set
+[9603][9603] 2017-09-29 00:02:36.231: LogDebug : CSG_LINUX set
+[9603][9603] 2017-09-29 00:02:36.231: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[9603][9603] 2017-09-29 00:02:36.231: LogDebug : enter anykey for exit!
+[9603][9606] 2017-09-29 00:02:36.231: LogSys : CMainLogicTask::run start
+[9603][9607] 2017-09-29 00:02:36.231: LogSys : CSocketSendTask::start 
+[9603][9604] 2017-09-29 00:02:36.231: LogSys : CUpdateDtTask::run start
+[9603][9605] 2017-09-29 00:02:36.231: LogSys : CLoggerWritterTask::run start
+[9603][9606] 2017-09-29 00:02:38.232: LogInfo : CTestTimer::handleTimeOut,flag=1,name=11111,dt=2017-09-29 00:02:38.232
+[9603][9606] 2017-09-29 00:02:41.234: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:41.234
+[9603][9606] 2017-09-29 00:02:43.237: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:43.237
+[9603][9606] 2017-09-29 00:02:45.239: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:45.239
+[9603][9606] 2017-09-29 00:02:46.240: LogInfo : CTestTimer::handleTimeOut,flag=3,name=3333,dt=2017-09-29 00:02:46.240
+[9603][9606] 2017-09-29 00:02:47.241: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:47.241
+[9603][9606] 2017-09-29 00:02:49.242: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:49.242
+[9603][9606] 2017-09-29 00:02:51.245: LogInfo : CTestTimer::handleTimeOut,flag=4,name=3333,dt=2017-09-29 00:02:51.245
+[9603][9606] 2017-09-29 00:02:51.245: LogInfo : CTestTimer::handleTimeOut,cancel flag=5,name=3333,dt=2017-09-29 00:02:51.245
+[9603][9606] 2017-09-29 00:02:51.345: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:51.345
+[9603][9606] 2017-09-29 00:02:53.347: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:53.347
+[9603][9606] 2017-09-29 00:02:55.349: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:55.349
+[9603][9606] 2017-09-29 00:02:57.351: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:57.351
+[9603][9606] 2017-09-29 00:02:59.354: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:02:59.354
+[9603][9606] 2017-09-29 00:03:01.356: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:03:01.356
+[9603][9606] 2017-09-29 00:03:03.359: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:03:03.359
+[9603][9606] 2017-09-29 00:03:05.361: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:03:05.361
+[10019][10019] 2017-09-29 00:11:33.107: LogDebug : Program run in below environment !!!
+[10019][10019] 2017-09-29 00:11:33.107: LogDebug : _DEBUG set
+[10019][10019] 2017-09-29 00:11:33.107: LogDebug : CSG_LINUX set
+[10019][10019] 2017-09-29 00:11:33.107: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[10019][10019] 2017-09-29 00:11:33.107: LogDebug : enter anykey for exit!
+[10019][10022] 2017-09-29 00:11:33.107: LogSys : CMainLogicTask::run start
+[10019][10023] 2017-09-29 00:11:33.107: LogSys : CSocketSendTask::start 
+[10019][10020] 2017-09-29 00:11:33.107: LogSys : CUpdateDtTask::run start
+[10019][10021] 2017-09-29 00:11:33.107: LogSys : CLoggerWritterTask::run start
+[10019][10022] 2017-09-29 00:11:35.108: LogInfo : CTestTimer::handleTimeOut,flag=1,name=11111,dt=2017-09-29 00:11:35.108
+[10019][10022] 2017-09-29 00:11:38.112: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:38.112
+[10019][10022] 2017-09-29 00:11:40.114: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:40.114
+[10019][10022] 2017-09-29 00:11:42.117: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:42.117
+[10019][10022] 2017-09-29 00:11:43.118: LogInfo : CTestTimer::handleTimeOut,flag=3,name=3333,dt=2017-09-29 00:11:43.118
+[10019][10022] 2017-09-29 00:11:44.121: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:44.121
+[10019][10022] 2017-09-29 00:11:46.122: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:46.122
+[10019][10022] 2017-09-29 00:11:48.124: LogInfo : CTestTimer::handleTimeOut,flag=4,name=3333,dt=2017-09-29 00:11:48.124
+[10019][10022] 2017-09-29 00:11:48.124: LogInfo : CTestTimer::handleTimeOut,cancel flag=5,name=3333,dt=2017-09-29 00:11:48.124
+[10019][10022] 2017-09-29 00:11:48.124: LogInfo :  CTestTimer::handleException,flag=5,name=3333,dt=2017-09-29 00:11:48.124,ex.what=test timer
+[10019][10022] 2017-09-29 00:11:48.225: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:48.225
+[10019][10022] 2017-09-29 00:11:50.234: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:50.234
+[10019][10022] 2017-09-29 00:11:52.235: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:52.235
+[10019][10022] 2017-09-29 00:11:54.238: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:54.238
+[10019][10022] 2017-09-29 00:11:56.240: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:56.240
+[10019][10022] 2017-09-29 00:11:58.241: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:11:58.241
+[10019][10022] 2017-09-29 00:12:00.245: LogInfo : CTestTimer::handleTimeOut,flag=2,name=222222,dt=2017-09-29 00:12:00.245
+[5530][5530] 2017-09-29 11:33:08.505: LogDebug : Program run in below environment !!!
+[5530][5530] 2017-09-29 11:33:08.505: LogDebug : _DEBUG set
+[5530][5530] 2017-09-29 11:33:08.505: LogDebug : CSG_LINUX set
+[5530][5530] 2017-09-29 11:33:08.505: LogSys : CLoggerWritterTask::setFileDir,mkdir TestApp complete!
+[5530][5530] 2017-09-29 11:33:08.505: LogDebug : enter anykey for exit!
+[5530][5532] 2017-09-29 11:33:08.505: LogSys : CLoggerWritterTask::run start
+[5530][5533] 2017-09-29 11:33:08.505: LogSys : CMainLogicTask::run start
+[5530][5534] 2017-09-29 11:33:08.505: LogSys : CSocketSendTask::start 
+[5530][5531] 2017-09-29 11:33:08.505: LogSys : CUpdateDtTask::run start
+[5530][5533] 2017-09-29 11:34:08.579: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:34:08.579: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:34:08.579: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:34:08.579: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:34:08.579: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:35:08.645: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:35:08.645: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:35:08.645: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:35:08.645: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:35:08.645: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:36:08.712: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:36:08.712: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:36:08.712: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:36:08.712: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:36:08.712: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:37:08.779: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:37:08.779: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:37:08.779: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:37:08.779: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:37:08.779: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:38:08.844: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:38:08.844: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:38:08.844: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:38:08.844: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:38:08.844: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:39:08.937: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:39:08.937: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:39:08.937: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:39:08.937: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:39:08.937: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:40:09.007: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:40:09.007: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:40:09.007: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:40:09.007: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:40:09.007: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:41:09.080: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:41:09.080: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:41:09.080: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:41:09.080: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:41:09.080: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:42:09.145: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:42:09.145: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:42:09.145: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:42:09.145: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:42:09.145: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:43:09.227: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:43:09.227: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:43:09.227: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:43:09.227: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:43:09.227: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:44:09.302: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:44:09.302: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:44:09.302: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:44:09.302: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:44:09.302: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:45:09.366: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:45:09.366: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:45:09.366: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:45:09.366: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:45:09.366: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:46:09.451: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:46:09.451: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:46:09.451: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:46:09.451: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:46:09.451: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:47:09.518: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:47:09.518: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:47:09.518: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:47:09.518: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:47:09.518: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:48:09.587: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:48:09.587: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:48:09.587: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:48:09.587: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:48:09.587: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:49:09.662: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:49:09.662: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:49:09.662: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:49:09.662: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:49:09.662: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0
+[5530][5533] 2017-09-29 11:50:09.725: LogSys : CounterHandlerName:CRMIObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:50:09.725: LogSys : CounterHandlerName:CRMIProxyObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:50:09.725: LogSys : CounterHandlerName:CRMIProxyCallBackObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:50:09.725: LogSys : CounterHandlerName:CRMIProxyCallBackBindObject _count:0,_countEx:0
+[5530][5533] 2017-09-29 11:50:09.725: LogSys : CounterHandlerName:CRefObjec _count:2,_countEx:0

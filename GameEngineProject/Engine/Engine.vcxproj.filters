@@ -73,6 +73,12 @@
     <Filter Include="Src\engine\rpc">
       <UniqueIdentifier>{39bacef8-3a57-4fd2-986c-f81623b2188d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\framework\json">
+      <UniqueIdentifier>{83a20b49-2f55-4356-88bf-828646f309e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\framework\timer">
+      <UniqueIdentifier>{c2d11af0-a8b2-43b1-b77f-591fe0cbc4e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Engine\engine\serialize\bytesbuffer.cpp">
@@ -185,6 +191,24 @@
     </ClCompile>
     <ClCompile Include="..\..\Engine\engine\rpc\rmiObjectAdapter.cpp">
       <Filter>Src\engine\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Engine\framework\json\json_reader.cpp">
+      <Filter>Src\framework\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Engine\framework\json\json_value.cpp">
+      <Filter>Src\framework\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Engine\framework\json\json_writer.cpp">
+      <Filter>Src\framework\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Engine\framework\timer\timeNode.cpp">
+      <Filter>Src\framework\timer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Engine\framework\timer\timer.cpp">
+      <Filter>Src\framework\timer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Engine\framework\timer\timerManager.cpp">
+      <Filter>Src\framework\timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -326,5 +350,58 @@
     <ClInclude Include="..\..\Engine\engine\rpc\rmiObjectAdapter.h">
       <Filter>Src\engine\rpc</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\allocator.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\assertions.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\autolink.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\config.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\features.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\forwards.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\json.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\reader.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\value.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\version.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\writer.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\json\json_tool.h">
+      <Filter>Src\framework\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\timer\timeNode.h">
+      <Filter>Src\framework\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\timer\timer.h">
+      <Filter>Src\framework\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Engine\framework\timer\timerManager.h">
+      <Filter>Src\framework\timer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Engine\framework\json\json_valueiterator.inl">
+      <Filter>Src\framework\json</Filter>
+    </None>
+    <None Include="..\..\Engine\framework\json\version.h.in">
+      <Filter>Src\framework\json</Filter>
+    </None>
   </ItemGroup>
 </Project>

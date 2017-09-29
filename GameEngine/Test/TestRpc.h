@@ -11,7 +11,8 @@
 #include "framework/SmartPoint/smartPoint.h"
 #include "engine/rpc/rpcHelper.h"
 #include "framework/log/Log.h"
-
+#include "framework/json/value.h"
+#include "framework/json/reader.h"
 
 void initRMIObject()
 {
@@ -199,9 +200,55 @@ void testRpcRecv()
 	cin.get();
 }
 
+void testJson()
+{
+	Json::Value js;
+	js["hi"] = 1;
+	js["hello"] = "hello";
+
+	for ( int i = 0; i < 10; i++ )
+	{
+		js["array"].append(i);
+	}
+
+
+	std::string jsstr=js.toStyledString();
+
+	CSG_LOG_DEBUG("js=" << jsstr);
+
+	Json::Reader reader;
+	
+	Json::Value root;
+
+	if ( reader.parse(jsstr ,root) )
+		CSG_LOG_DEBUG("root=" << root.toStyledString());
+}
+
+void testRapidJson()
+{
+	// 1. 把 JSON 解析至 DOM。
+// 	const char* json = "{\"project\":\"rapidjson\",\"stars\":10}";
+// 	RAPIDJSON_NAMESPACE::Document d;
+// 	d.Parse(json);
+// 	//CSG_LOG_DEBUG("d="<<d.GetString());
+// 	// 2. 利用 DOM 作出修改。
+// 	RAPIDJSON_NAMESPACE::Value& s = d["stars"];
+// 	s.SetInt(s.GetInt() + 1);
+// 	//CSG_LOG_DEBUG("s=" << s.GetString());
+// 	// 3. 把 DOM 转换（stringify）成 JSON。
+// 	RAPIDJSON_NAMESPACE::StringBuffer buffer;
+// 	RAPIDJSON_NAMESPACE::Writer<RAPIDJSON_NAMESPACE::StringBuffer> writer(buffer);
+// 	d.Accept(writer);
+// 	// Output {"project":"rapidjson","stars":11}
+// 	CSG_LOG_DEBUG("d="<<buffer.GetString());
+
+}
+
 
 void testRPC()
 {
+	testJson();
+	//testRapidJson();
 	Message::CTest::regist();
 	char ch;
 	do

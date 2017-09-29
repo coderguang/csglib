@@ -21,6 +21,8 @@
 #include <exception>
 #include "TestSerializeEx.h"
 #include "TestRpc.h"
+#include "TestTimer.h"
+#include "framework/counter/counterHandlerManager.h"
 
 
 void startMain()
@@ -63,8 +65,13 @@ void startMain()
 		cin.get();
 		return;
 	}
+	//监控对象数量
+	CCounterHandlerManager::initPrintCounterTimer();
 
-	testRPC();
+
+	//testTimer();
+
+	//testRPC();
 
 	//testSerializeEx();
 

@@ -124,6 +124,6 @@ void csg::CThreadManager::activeSocketSendServer()
 	if ( _socketSendServer.isStart() )
 		return;
 	_socketSendServer.active(CSERVER_SOCKET_SEND_AMOUNT);
-	addTask(_mainLogiceServer);
+	addTask(_socketSendServer);
 
 }

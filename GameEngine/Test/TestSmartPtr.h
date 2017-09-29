@@ -160,7 +160,7 @@ void testSmart3()
 
 	int k = 0;
 
-	CCounterHandlerManager::printCounterHandler(NULL);
+	CCounterHandlerManager::printCounterHandler();
 
 }
 
@@ -205,7 +205,7 @@ void testSmartPtr()
 
 	//testSmart3();
 
-	CCounterHandlerManager::printCounterHandler(NULL);
+	CCounterHandlerManager::printCounterHandler();
 
 	//testSp2();
 

@@ -65,6 +65,9 @@
     <ClInclude Include="..\..\GameEngine\Test\logic\ITestImpl.h">
       <Filter>Src\logic</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\GameEngine\Test\TestTimer.h">
+      <Filter>Src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\GameEngine\Test\TestBaseWinSocket.h">

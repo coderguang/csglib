@@ -24,7 +24,7 @@ LIB_NAME		:= libMessage.a
 #set build param
 CC	:= clang++
 CFLAG	:= -I$(PROJECT_DIR) -std=c++11 -lstdc++ -D _DEBUG -L../../lib/ -I../../Engine/
-LIBS	:= -lEngine
+LIBS	:= 
 RM :=rm
 
 

@@ -13,7 +13,7 @@ namespace csg
 	public:
 		CCounterHandler(const std::string& name);
 		virtual ~CCounterHandler();
-		virtual void print(IIOHandler* handle);
+		virtual void print();
 
 		void increaseCount(int add=1);
 

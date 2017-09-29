@@ -21,7 +21,7 @@ APP_NAME		:= Test
 #set build param
 CC	:= clang++
 CFLAG	:= -I$(PROJECT_DIR) -std=c++11 -lstdc++ -g -D _DEBUG -L../../lib/ -I../../Engine/
-LIBS := -lpthread -lMessage -lEngine 
+LIBS := -lpthread -lMessage -lEngine
 RM :=rm
 
 #set file dir

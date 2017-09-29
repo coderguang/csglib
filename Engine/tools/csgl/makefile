@@ -1,7 +1,6 @@
 
 OBJ	:= csgl
-#TOOLS_DIR	:=../../../../Public/tools/
-TOOLS_DIR	:=./
+TOOLS_DIR	:=../../../../Public/tools/
 SRCC_LEX	:=$(OBJ).yy.c
 SRCC_YACC	:=$(OBJ).tab.c
 SRCH_YACC	:=$(OBJ).tab.h
