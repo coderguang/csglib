@@ -65,5 +65,5 @@ $(APP_NAME):$(CUR_OBJ)
 	@echo -e $(GREEN) "build $(APP_NAME) success!" $(BLACK)
 .PHONY:clean
 clean :
-	@$(RM) -rf $(APP_NAME) $(CUR_OBJ) $(PROJECT_LIB_DIR)$(LIB_NAME) $(CUR_DEP) core.*
+	@$(RM) -rf $(APP_NAME) $(CUR_OBJ) $(PROJECT_LIB_DIR)$(LIB_NAME) $(CUR_DEP) core.* TestApp
 

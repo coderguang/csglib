@@ -17,7 +17,7 @@ WHITE = "\e[37;1m"
 
 #set project dir
 PROJECT_DIR		:=$(shell pwd)
-PROJECT_BIN_DIR	:=../bin/
+PROJECT_BIN_DIR	:=../../bin/
 PROJECT_LIB_DIR	:=../../lib/
 LIB_NAME		:= libMessage.a
 
@@ -64,6 +64,8 @@ $(foreach tmp,$(CUR_OBJ_EX),$(eval $(call build_obj,$(tmp).o,$(tmp).cpp)))
 all:$(LIB_NAME)
 
 $(LIB_NAME):$(CUR_OBJ)
+	test -d $(PROJECT_LIB_DIR) || mkdir -p $(PROJECT_LIB_DIR)
+	test -d $(PROJECT_BIN_DIR) || mkdir -p $(PROJECT_BIN_DIR)
 	@echo "start build $(LIB_NAME).."
 	ar cr $(PROJECT_LIB_DIR)$@ $^
 	@echo -e $(GREEN) "build $(LIB_NAME) success!" $(BLACK)
