@@ -13,3 +13,6 @@ v103:
   how to start:
   enter dir GameEngine/Test,run "sh mlib",it will build static lib.
   after then ,run "make all",it build Test exec.
+
+v105:
+	add mongodb to project
