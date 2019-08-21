@@ -5,4 +5,4 @@ csglib
 
 * a simple c++ lib ,include thread ,socket , datetime ,log,smartPoint etc.
 * a simple rpc is support,and a simple timer can be use.
-* a tools for generate struct ,rpc serialize code also can* be use,which I call it csgl base on flex and bison.
+* a tools for generate struct ,rpc serialize code also can be use,which I call it csgl base on flex and bison.
